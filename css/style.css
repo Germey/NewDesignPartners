@@ -8,10 +8,37 @@
 	margin-right: 30px;
 	text-decoration: none;
 }
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+ul{
+	padding: 0;
+}
 body{
 	font-family:"Microsoft Yahei";
 }
-
+form{
+	width: 100%;
+}
+.form-item {
+	margin: 10px 0;
+}
+.form-item {
+	overflow:hidden;
+	width: 100%;
+}
+.form-item .form-input {
+	float:left;
+	width:80%;
+}
+.form-item input {
+	width: 125%;
+}
+.form-item .form-label{
+	float:right;
+	margin: 5px 0px;
+}
 /* 导航条 */
 @media (max-width: 768px) {
 	#menubar .navbar-toggle {
@@ -145,6 +172,9 @@ body{
 .workshop-single .name a{
 	text-decoration: none;
 }
+.workshop-single a {
+	color: black;
+}
 @media (min-width: 992px) {
 	.workshop-single {
 		width: 300px;
@@ -228,4 +258,60 @@ body{
 		font-size: 16px;
 		margin-top: 22px;
 	}
+}
+
+/* 注册页面 */
+#register {
+	padding: 50px 0;
+}
+#register p.title {
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	margin: 20px 0;
+}
+#register form {
+	max-width: 260px;
+	margin: auto;
+}
+#register .code-item .form-input {
+	width: 50%;
+}
+#register .code-item .form-label {
+	float: left;
+}
+#register .code-item .checkcode {
+	float: right;
+}
+#register input[type="button"] {
+	width: 100%;
+}
+/* 底部版权 */
+#footer {
+	background-color: #333;
+	padding: 50px 0;
+}
+#footer .block {
+	width:200px;
+	margin: auto;
+	text-align: center;
+}
+#footer .block li {
+	margin: 5px 0;
+}
+#footer .block li a {
+	  color: #dbdbdb;
+	  font-size: 15px;
+	  text-decoration: none;
+}
+#footer .title{
+	  font-size: 16px;
+	  margin: 30px 0px 30px 0;
+	  color: #e5e5e5;
+}
+#footer #copyright {
+	text-align: center;
+	padding: 70px 20px 0px 20px;
+	font-size: 15px;
+	color: #e5e5e5;
 }

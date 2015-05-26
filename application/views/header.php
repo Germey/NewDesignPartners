@@ -35,8 +35,8 @@
               <li><a href="#">关于</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">登录</a></li>
-              <li><a href="#">注册</a></li>
+              <li><a href="<?php echo site_url();?>/login">登录</a></li>
+              <li><a href="<?php echo site_url();?>/register">注册</a></li>
               <li><a href="#">设计需求提交</a></li>
             </ul>
           </div>
