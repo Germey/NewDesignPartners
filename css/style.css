@@ -1,0 +1,231 @@
+/* 通用 */
+.flow-hidden {
+	overflow: hidden;
+}
+.block-header .more a{
+	color: #333;
+	margin-top: 20px;
+	margin-right: 30px;
+	text-decoration: none;
+}
+body{
+	font-family:"Microsoft Yahei";
+}
+
+/* 导航条 */
+@media (max-width: 768px) {
+	#menubar .navbar-toggle {
+		margin-top: 20px !important;
+	}
+	.navbar-collapse {
+		margin-top: 45px !important;
+	}
+}
+
+#menubar {
+	height: 137px;
+}
+#menubar>nav {
+	height: 137px;
+	padding-top: 30px;
+}
+#menubar .navbar-brand img {
+	margin-right: 40px;
+}
+#menubar .navbar-collapse {
+	margin-top: 15px;
+}
+
+/* 轮播 */
+@media (max-width: 524px) {
+	.carousel {
+		height:180px;
+	}
+	.carousel .item {
+		height: 180px;
+	}
+	.carousel img {
+		min-height: 180px;
+	}
+	.carousel-caption p {
+		font-size: 16px;
+		line-height: 1.4;
+	}
+}
+
+@media (max-width: 867px) and (min-width: 525px) {
+	.carousel {
+		height:300px;
+	}
+	.carousel .item {
+		height: 300px;
+	}
+	.carousel img {
+		min-height: 300px;
+	}
+	.carousel-caption p {
+		font-size: 16px;
+		line-height: 1.4;
+	}
+}
+
+@media (min-width: 868px){
+	.carousel{
+		height:373px;
+	}
+	.carousel-inner .item{
+		width:100%;
+		height:373px;
+	}
+	.carousel img {
+		min-height: 373px;
+	}
+}
+
+.carousel {
+	font-family:"Microsoft Yahei";
+}
+.carousel-control.left {
+	background-image: none;
+}
+.carousel-control.right {
+	background-image: none;
+}
+
+/* 项目预览 */
+.project-single {
+	padding:30px 20px 30px 10px;
+	margin: 0px 0px;
+}
+.project-single .introduction {
+	text-align: left;
+	padding: 0 20px 20px 20px;
+	max-width: 280px;
+	margin: auto;
+}
+.project-single .name a {
+	font-size: 20px;
+	color: black;
+	text-decoration: none;
+	margin: 0px 10px 10px 0px;
+}
+.project-single .recruit {
+	font-size: 14px;
+	width: 80px;
+	margin-bottom: 5px;
+	line-height: 23px;
+}
+.project-single .location {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+.project-single .enddate {
+	font-size: 15px;
+}
+.project-single .pre-img {
+	margin: auto;
+	width: 280px;
+}
+.project-single img {
+	width:280px;
+	text-align: center;
+}
+/* 训练营概览 */
+#wkshopOverview{
+	background-color: #F8F8F8;
+	padding: 30px 0;
+}
+.workshop-single {
+	padding-bottom: 30px;
+}
+.workshop-single .name {
+	text-align: center;
+	color: black;
+}
+.workshop-single .name a{
+	text-decoration: none;
+}
+@media (min-width: 992px) {
+	.workshop-single {
+		width: 300px;
+		margin: auto;
+	}
+	.workshop-single .img {
+		width: 300px;
+		height: 270px;
+	}
+	.workshop-single .img img {
+		width: 288px;
+		height: 258px;
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.workshop-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}
+@media (max-width: 992px) and (min-width: 768px) {
+	.workshop-single {
+		width: 240px;
+		margin: auto;
+	}
+	.workshop-single .img {
+		width: 240px;
+		height: 220px;
+	}
+	.workshop-single .img img {
+		width: 218px;
+		height: 198px;
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.workshop-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}
+@media (max-width: 768px) and (min-width: 524px) {
+	.workshop-single {
+		width: 190px;
+		margin: auto;
+	}
+	.workshop-single .img {
+		width: 190px;
+		height: 170px;
+	}
+	.workshop-single .img img {
+		width: 170px;
+		height: 160px;
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.workshop-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}
+@media (max-width: 523px) {
+	.workshop-single {
+		width: 280px;
+		margin: auto;
+	}
+	.workshop-single .img {
+		width: 280px;
+		height: 250px;
+	}
+	.workshop-single .img img {
+		width: 258px;
+		height: 238px;
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.workshop-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}

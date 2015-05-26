@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>设计合伙人</title>
-    <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url();?>css/style.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
+    <!-- 导航条 -->
     <div id="menubar">
       <nav class="navbar navbar-default">
         <div class="container">
@@ -25,19 +25,22 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>images/logo.png"></a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a href="#">项目</a></li>
+              <li><a href="#">训练营</a></li>
+              <li><a href="#">设计师</a></li>
+              <li><a href="#">关于</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a href="#">登录</a></li>
+              <li><a href="#">注册</a></li>
+              <li><a href="#">设计需求提交</a></li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
+    <!-- 导航条结束 -->
