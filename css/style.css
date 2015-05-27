@@ -121,6 +121,9 @@ form {
 .carousel-control.right {
 	background-image: none;
 }
+.carousel img {
+	width: 100%;
+}
 
 /* 项目预览 */
 .project-single {
