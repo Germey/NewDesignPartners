@@ -42,4 +42,30 @@
 			
 		}
 		
+		/* 检查邮箱是否存在 */
+		public function emailExists($email) {
+
+			$sql = "select * from designer where email = '$email'";
+			$result = $this->db->query($sql)->result_array();
+			if ($result) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
+
+		/* 检查手机是否存在 */
+		public function phoneExists($phone) {
+
+			$sql = "select * from designer where phone = '$phone'";
+			$result = $this->db->query($sql)->result_array();
+			if ($result) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		}
+
 	}

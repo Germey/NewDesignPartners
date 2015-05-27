@@ -54,6 +54,16 @@
 					<div><img src="<?php echo base_url();?>index.php/register/getCode" onclick="this.src='<?php echo base_url();?>index.php/welcome/getCode?'+Math.random()"><br></div>
 				</div>
 			</div>
+			<div class="form-item checkbox-item">
+				<div class="form-input">
+					<input type="checkbox" name="checkbox" id="checkbox">
+				</div>
+				<div class="form-content">
+					<div class="content">
+						<p>我已阅读并接受<a href = "">版权声明</a>和<a href = "">隐私保护</a>条款</p>
+					</div>
+				</div>
+			</div>
 			<input type="submit" class="btn btn-primary" value="注册" name="sub" id="sub">
 		</form>
 	</div>

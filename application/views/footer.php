@@ -36,12 +36,30 @@
 			</div>
 		</div>
 	</div>
-	<!-- 尾部结束 -->	
+	<!-- 尾部结束 -->
+	<!-- 提示框 -->
+	<div class="modal" id="mymodal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">温馨提示</h4>
+				</div>
+				<div class="modal-body">
+					<p>提示内容</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 提示框结束 -->	
 	<script src="<?php echo base_url()?>js/jquery.min.js"></script>
     <script src="<?php echo base_url()?>js/bootstrap.js"></script>
     <script src="<?php echo base_url()?>js/jquery.validate.js"></script>
-    <script src="<?php echo base_url()?>js/main.js"></script>
     <script src="<?php echo base_url()?>js/libs.js"></script>
+    <script src="<?php echo base_url()?>js/main.js"></script>
     <script type="text/javascript">
 	function getWrongPic() {
 		return '<?php echo base_url();?>images/wrong.png';
@@ -51,6 +69,12 @@
 	}
 	function getCodeCheckURL() {
 		return '<?php echo site_url();?>/register/codeCheck';
+	}
+	function getEmailExistsURL() {
+		return '<?php echo site_url();?>/register/emailExists';
+	}
+	function getPhoneExistsURL() {
+		return '<?php echo site_url();?>/register/phoneExists';
 	}
     </script>
 	</body>

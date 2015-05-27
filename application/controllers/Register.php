@@ -13,7 +13,7 @@ class Register extends CI_Controller {
 	public function __construct() {
 
 		parent::__construct();
-		$this->load->model("reg_model","reg");
+		$this->load->model("des_model","des");
 
 	}
 
@@ -42,29 +42,65 @@ class Register extends CI_Controller {
 
 	/* 加载注册页面 */
 	private function loadRegister()	{
+
 		$this->load->view('register/register');
+
 	}
 
 	/* 获取验证码 */
 	public function getCode(){
+
 		require_once(APPPATH."third_party/code.class.php");
 		$code=new Code(80, 30, 4);
-		$code->showImage();   //输出到页面中供 注册或登录使用
-		$_SESSION["checkcode"]=$code->getCheckCode();  //将验证码保存到服务器中
+		/* 输出到页面中供 注册或登录使用 */
+		$code->showImage();   
+		/* 将验证码保存到服务器中 */
+		$_SESSION["checkcode"]=$code->getCheckCode();  
+	
 	} 
 
 	/* 判断验证码是否正确 */
 	public function codeCheck(){
+
 		$code = $_POST['checkcode'];
 		$sessionCode = $_SESSION["checkcode"];
 		/* 不区分大小写比较验证码 */
 		if(strcasecmp($code,$sessionCode)==0){
-			echo 1;
+			echo "true";
 		}else{
-			echo 0;
+			echo "false";
 		}
+
 	}
 
+	/* 检查邮箱是否已存在 */
+	public function emailExists() {
+
+		$email = $_POST['email'];
+		$email = htmlspecialchars($email, ENT_QUOTES);
+		$result = $this->des->emailExists($email);
+		if ($result) {
+			echo "false";
+		} else {
+			echo "true";
+		}
+
+	}
+
+
+	/* 检查手机是否已存在 */
+	public function phoneExists() {
+
+		$phone = $_POST['phone'];
+		$phone = htmlspecialchars($phone, ENT_QUOTES);
+		$result = $this->des->phoneExists($phone);
+		if ($result) {
+			echo "false";
+		} else {
+			echo "true";
+		}
+
+	}
 
 	/* 注册 */
 	public function register() {
@@ -88,19 +124,21 @@ class Register extends CI_Controller {
 		if ((!$emailResult) && (!$phoneResult)) {
 			$bool = $this->des->register($data);
 			/* 判断是否注册成功 */
-			if($bool){
-			/* 注册成功 */
+			if ($bool) {
+				/* 注册成功 */
 				$id = $this->des->getIdByEmail($email);
-				$b = $this->send_email($email,$id,md5($password));
-				
-			}else{
-			/* 注册失败 */
-				
+				//$sendResult = $this->send_email($email,$id,md5($password));
+				$var['content'] = "恭喜你注册成功";
+				$this->load->view("message",$var);
+			} else {
+				/* 注册失败 */
+				$var['content'] = "对不起，服务器出了点问题，注册失败，请重试。";
+				$this->load->view("message",$var);	
 			}
-			
-		}else{
-		/* 已经注册过了 */
-
+		} else {
+			/* 已经注册过了 */
+			$var['content'] = "亲，请不要重复注册";
+			$this->load->view("message",$var);	
 		}
 		/* 读取尾部 */
 		$this->loadFooter();

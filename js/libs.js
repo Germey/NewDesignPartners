@@ -20,11 +20,6 @@ function nameValidate(value) {
 	}      
 }
 
-/* 检查邮箱是否合法 */
-function emailValidate() {
-
-}
-
 /* 检查输入密码是否合法 */
 function passwordValidate(value) {  
 	var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);      
@@ -48,5 +43,15 @@ function checkcodeValidate(value, url) {
 		} else {
 			checkResult = 0;
 		}
+	});
+}
+
+/* 调出提示框，输入内容 */
+function message(content) {
+	$("#mymodal").modal("show");
+	$("#mymodal .modal-body p").html(content);
+	$("#mymodal button").click(function() {
+		$("#mymodal").modal("hide");
+		$(".label label script").remove();
 	});
 }

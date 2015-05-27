@@ -12,13 +12,16 @@
 	margin-left: 0;
 	margin-right: 0;
 }
-ul{
+a {
+	text-decoration: none;
+}
+ul {
 	padding: 0;
 }
-body{
+body {
 	font-family:"Microsoft Yahei";
 }
-form{
+form {
 	width: 100%;
 }
 .form-item {
@@ -283,8 +286,24 @@ form{
 #register .code-item .checkcode {
 	float: right;
 }
-#register input[type="button"] {
+#register input[type="submit"] {
 	width: 100%;
+}
+#register .checkbox-item .form-input {
+	width: 5%;
+}
+#register .checkbox-item .form-content {
+	float: left;
+	width: 95%;
+}
+#register .checkbox-item .form-content .content {
+	font-size: 12px;
+	padding: 2px 0 0 10px;
+	margin: 0;
+	height: 10px;
+}
+#register .checkbox-item .checkcode {
+	float: right;
 }
 /* 底部版权 */
 #footer {
@@ -314,4 +333,9 @@ form{
 	padding: 70px 20px 0px 20px;
 	font-size: 15px;
 	color: #e5e5e5;
+}
+
+/* 提示信息 */
+#message {
+	padding: 50px 50px 30px 50px;
 }
