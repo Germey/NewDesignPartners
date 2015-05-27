@@ -39,65 +39,91 @@ class Login extends CI_Controller {
 
 	}
 	
-	//读取登录表单
-	protected  function loadLogin(){
+	/* 读取登录表单 */
+	private function loadLogin(){
 
 		$this->load->view("login/login");
 
 	}
 	
-
-	//处理表单提交的数据
-	public function log(){
+	/* 处理表单提交的数据 */
+	public function login() {
 
 		$email = $this->input->post("email");
+		$email = htmlspecialchars($email, ENT_QUOTES);
 		$password = $this->input->post("password");
-		//加载设计师模型
-		$this->load->model("des_model","des");
-		$result = $this->des->login($email);
-		//判断是否登录成功
+		$password = htmlspecialchars($password, ENT_QUOTES);
+		$result = $this->des->getByEmail($email);
+		/* 判断是否登录成功 */
 		$this->loadHeader();
-		if((isset($_SESSION['email']))&&($_SESSION['email']==$email))
-		{	//已经登录
-			$data['success'] = 2;
-			$this->load->view("login/message",$data);
-		}else if($result){
-			if($result[0]->password == md5($password)){
-				$_SESSION['email']=$email;
-				$_SESSION['password']=$password;
-				$_SESSION['name']=$result[0]->name;
-				$_SESSION['id']=$result[0]->id;
-				//登录成功
-				$data['success'] = 1;
-				$this->load->view("login/message",$data);
-			}else{
-				//密码错误
-				$data['wrong'] = 1;
-				$this->load->view("login/login",$data);
+		if ((isset($_SESSION['email'])) && ($_SESSION['email'] == $email)) {	
+			/* 已经登录 */
+			$data['content'] = "当前您已在线";
+			$data['redirect'] = "main";
+			$this->load->view("message",$data);
+		} else if ($result) {
+			if ($result[0]['password'] == md5($password)) {
+				$_SESSION['email'] = $email;
+				$_SESSION['password'] = $password;
+				$_SESSION['name'] = $result[0]['name'];
+				$_SESSION['id'] = $result[0]['id'];
+				/* 登录成功 */
+				$data['content'] = "恭喜您登录成功";
+				$data['redirect'] = "main";
+				$this->load->view("message",$data);
+			} else {
+				/* 密码错误 */
+				$data['content'] = "密码错误，登录失败";
+				$data['redirect'] = "login";
+				$this->load->view("message",$data);
 			}
 		}
 		else{
-			//用户不存在
-			$data['success'] = 3;
-			$this->load->view("login/message",$data);
+			/* 用户不存在 */
+			$data['content'] = "用户不存在";
+			$data['redirect'] = "login";
+			$this->load->view("message",$data);
 		}
 		$this->loadFooter();
+
 	}
 	
-	//检验Email是否可用
-	public function email_check(){
-	
+	/* 检查邮箱是否已经注册 */
+	public function emailRegistered() {
+
 		$email = $_POST['email'];
-		$this->load->model("des_model","des");
-		$result = $this->des->checkEmail($email);
-		if(!(preg_match("/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/",$email))){//正则表达式匹配邮箱格式是否正确
-			echo "1";//邮箱格式不正确
-		}else if(!$result){
-			echo "2";
+		$email = htmlspecialchars($email, ENT_QUOTES);
+		$result = $this->des->emailExists($email);
+		if ($result) {
+			echo "true";
+		} else {
+			echo "false";
 		}
+
 	}
+
+	/* 检查密码是否正确 */
+	public function passwordCheck() {
+
+		$email = $_POST['email'];
+		$email = htmlspecialchars($email, ENT_QUOTES);
+		$password = $_POST['password'];
+		$password = htmlspecialchars($password, ENT_QUOTES);
+		$result = $this->des->getByEmail($email);
+		if (!$result) {
+			echo "false";
+		} else {
+			if ($result[0]['password'] == md5($password)) {
+				echo "true";
+			} else {
+				echo "false";
+			}
+		}
+
+	}
+
 	
-	//退出登录
+	/* 退出登录 */
 	public function logout(){
 		
 		unset($_SESSION['email']);
@@ -106,11 +132,13 @@ class Login extends CI_Controller {
 		unset($_SESSION['id']);
 		$this->loadHeader();
 		if(!isset($_SESSION['email'])){
-			$data['success'] = 4;
+			$data['content'] = "用户已退出";
+			$data['redirect'] = "main";
 		}else{
-			$data['success'] = 5;
+			$data['content'] = "退出失败，请重试";
+			$data['redirect'] = "main";
 		}
-		$this->load->view("login/message",$data);
+		$this->load->view("message",$data);
 		$this->loadFooter();
 		
 	}

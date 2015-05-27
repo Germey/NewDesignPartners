@@ -305,6 +305,35 @@ form {
 #register .checkbox-item .checkcode {
 	float: right;
 }
+
+
+/* 登录页面 */
+#login {
+	padding: 50px 0;
+}
+#login p.title {
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	margin: 20px 0;
+}
+#login form {
+	max-width: 260px;
+	margin: auto;
+}
+#login .code-item .form-input {
+	width: 50%;
+}
+#login .code-item .form-label {
+	float: left;
+}
+#login .code-item .checkcode {
+	float: right;
+}
+#login input[type="submit"] {
+	width: 100%;
+}
+
 /* 底部版权 */
 #footer {
 	background-color: #333;

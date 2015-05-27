@@ -6,4 +6,12 @@
 		</div>
 	</div>
 </div>
+<script>
+function redirectURL() {
+	location = "<?php echo site_url()?>/<?php echo $redirect;?>";
+}
+<?php if (isset($redirect)) { ?>
+setTimeout('redirectURL()',1500);  
+<?php } ?>
+</script>
 <!-- 提示信息结束 -->

@@ -25,7 +25,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>images/logo.png"></a>
+            <a class="navbar-brand" href="<?php echo site_url() ?>"><img src="<?php echo base_url()?>images/logo.png"></a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -35,8 +35,20 @@
               <li><a href="#">关于</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url();?>/login">登录</a></li>
-              <li><a href="<?php echo site_url();?>/register">注册</a></li>
+              <li>
+                <?php if (!isset($_SESSION['name'])) { ?>
+                <a href="<?php echo site_url();?>/login">登录</a>
+                <?php } else { ?>
+                <a href="<?php echo site_url();?>/login"><?php echo $_SESSION['name'];?></a>
+                <?php } ?>
+              </li>
+              <li>
+                <?php if (!isset($_SESSION['name'])) { ?>
+                <a href="<?php echo site_url();?>/register">注册</a>
+                <?php } else { ?>
+                <a href="<?php echo site_url();?>/login/logout">登出</a>
+                <?php } ?>
+              </li>
               <li><a href="#">设计需求提交</a></li>
             </ul>
           </div>

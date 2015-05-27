@@ -76,6 +76,12 @@
 	function getPhoneExistsURL() {
 		return '<?php echo site_url();?>/register/phoneExists';
 	}
+	function getEmailRegisteredURL() {
+		return '<?php echo site_url();?>/login/emailRegistered';
+	}
+	function getPasswordCheckURL() {
+		return '<?php echo site_url();?>/login/passwordCheck';
+	}
     </script>
 	</body>
 </html>

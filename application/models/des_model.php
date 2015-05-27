@@ -11,7 +11,7 @@
 
 			$sql = "select * from designer where email = '".$email."'";
 			$result = $this->db->query($sql);
-			return $result->result();
+			return $result->result_array();
 
 		}
 
@@ -20,7 +20,7 @@
 
 			$sql = "select * from designer where phone = '".$phone."'";
 			$result = $this->db->query($sql);
-			return $result->result();
+			return $result->result_array();
 
 		}
 
@@ -67,5 +67,6 @@
 			}
 			
 		}
+
 
 	}

@@ -99,6 +99,64 @@ $(function(){
 		}
 	});
 	
+	/* 登录表单合法性验证 */
+	$("#login-form").validate({
+		onkeyup: false,
+		rules: {
+			email: {
+				required: true, 
+				email: true, 
+				remote: {
+					url: getEmailRegisteredURL(), 
+					type: "post", 
+					dataType: "json", 
+					data: {
+						email: function() {
+							return $("#login-form #email").val();
+						}
+					}
+				}
+			}, 
+			password: {
+				required: true,
+				remote :{
+					url: getPasswordCheckURL(),
+					type: "post",
+					dataType: "json",
+					data: {
+						email: function() {
+							return $("#login-form #email").val();
+						},
+						password: function() {
+							return $("#login-form #password").val();
+						}
+					}
+				}
+			}
+		}, 
+		errorPlacement: function(error, element){
+			element.parent().next().children(".label").html="";
+			error.appendTo(element.parent().next().children(".label"));
+		}, 
+		messages: {
+			email: {
+				required: "<img src="+getWrongPic()+">", 
+				email: "<img src="+getWrongPic()+">",
+				remote: "<img src="+getWrongPic()+"><script>message('不好意思，当前用户不存在！')</script>"
+			}, 
+			password: {
+				required: "<img src="+getWrongPic()+">",
+				remote: "<img src="+getWrongPic()+"><script>message('不好意思，密码输入错误！')</script>"
+			}
+		}, 
+		submitHandler: function(form){ 
+			form.submit();
+		}, 
+		success: function(label){
+			label.html("<img src="+getRightPic()+">");
+		}
+	});
+	
 
 	
 

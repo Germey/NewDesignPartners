@@ -110,16 +110,14 @@ class Register extends CI_Controller {
 		$email = htmlspecialchars($this->input->post("email"), ENT_QUOTES);
 		$phone = htmlspecialchars($this->input->post("phone"), ENT_QUOTES);
 		$password = htmlspecialchars($this->input->post("password"), ENT_QUOTES);
-		//赋值到一个数组中
+		/* 赋值到一个数组中 */
 		$data['name'] = $name;
 		$data['email'] = $email;
 		$data['phone'] = $phone;
 		$data['password'] = $password;
-		//加载设计师模型
-		$this->load->model("des_model","des");
 		$emailResult= $this->des->getByEmail($email);
 		$phoneResult = $this->des->getByPhone($phone);
-		//读取头部
+		/* 读取头部 */
 		$this->loadHeader();
 		if ((!$emailResult) && (!$phoneResult)) {
 			$bool = $this->des->register($data);
@@ -129,10 +127,12 @@ class Register extends CI_Controller {
 				$id = $this->des->getIdByEmail($email);
 				//$sendResult = $this->send_email($email,$id,md5($password));
 				$var['content'] = "恭喜你注册成功";
+				$var['redirect'] = "main";
 				$this->load->view("message",$var);
 			} else {
 				/* 注册失败 */
 				$var['content'] = "对不起，服务器出了点问题，注册失败，请重试。";
+				$var['redirect'] = "register";
 				$this->load->view("message",$var);	
 			}
 		} else {
