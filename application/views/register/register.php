@@ -1,7 +1,7 @@
 <!-- 注册页面 -->
 <div id="register">
 	<div class="containet">
-		<form id="buy-form" action="<?php echo site_url();?>/register/register" method="post">
+		<form id="register-form" action="<?php echo site_url();?>/register/register" method="post">
 			<p class="title">注册</p>
 			<div class="form-item">
 				<div class="form-input">
@@ -54,7 +54,7 @@
 					<div><img src="<?php echo base_url();?>index.php/register/getCode" onclick="this.src='<?php echo base_url();?>index.php/welcome/getCode?'+Math.random()"><br></div>
 				</div>
 			</div>
-			<input type="button" class="btn btn-primary" value="注册" name="sub" id="sub">
+			<input type="submit" class="btn btn-primary" value="注册" name="sub" id="sub">
 		</form>
 	</div>
 </div>
