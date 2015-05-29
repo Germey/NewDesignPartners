@@ -76,6 +76,36 @@ class Project extends CI_Controller {
 
 	}
 
+	/* 获取项目详情 */
+	public function details($id) {
+
+		$this->loadHeader();
+		if (!$this->proj->projExists($id)) {
+			$data['content'] = "项目不存在";
+			$data['redirect'] = "main";
+			$this->load->view("message", $data);
+		} else {
+			$result = $this->proj->getDetailsByid($id);
+			/* 获得加入该项目的设计师 */
+			$designers = $this->proj->getJoinedDesigners($id);
+			for($i=0;$i<count($designers);$i++){
+				$designers[$i]['image'] = $this->getUrlByKey($designers[$i]['image']);
+			}
+			/* 是否已经加入 */
+			$joined = 0;
+			if(isset($_SESSION['id'])){
+				$joined = $this->proj->isJoined($id,$_SESSION['id']);
+			}
+			$result['image'] = $this->getUrlByKey($result['image']);
+			$result['large_image'] = $this->getUrlByKey($result['large_image']);
+			$data['project'] = $result;
+			$data['designers'] = $designers;
+			$data['joined'] = $joined;
+			$this->load->view("project/details", $data);
+		}
+		$this->loadFooter();
+
+	}
 
 	/* 获取AccsssKey */
 	private function getAccessKey() {

@@ -365,6 +365,72 @@ form {
 	text-align: right;
 }
 
+/* 项目详情 */
+#proj-details {
+	background-color: #F8F8F8;
+}
+#proj-details .left {
+	padding: 20px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin-bottom: 30px;
+}
+#proj-details .proj-title {
+	text-align: center;
+	margin: 40px 0;
+}
+#proj-details .brief img {
+	width: 100%;
+}
+#proj-details .left .item {
+	border-top: 1px solid #EEE;
+}
+#proj-details .left .content {
+	margin: 20px;
+	font-size: 14px;
+}
+#proj-details .left .title {
+	font-size: 15px;
+	margin: 20px 0;
+}
+#proj-details .right {
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin-bottom: 30px;
+}
+#proj-details .right .item {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #EEE;
+}
+#proj-details .joined-designer .title {
+	text-align: center;
+	margin: 20px;
+}
+#proj-details .joined-designer .item {
+	overflow: hidden;
+	padding: 6px;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+}
+#proj-details .joined-designer .single {
+	width: 120px;
+	height: 140px;
+}
+#proj-details .joined-designer .single .name {
+	margin-top: 10px;
+}
+#proj-details .joined-designer .single .name a{
+	color: #333;
+	text-decoration: none;
+}
+#proj-details .joined-designer .single img {
+	width: 100px;
+	height: 100px;
+}
 /* 训练营列表 */
 #workshops .single {
 	padding: 50px;
