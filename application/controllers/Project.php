@@ -107,6 +107,47 @@ class Project extends CI_Controller {
 
 	}
 
+
+	/* 发布项目 - 基本信息 */
+	public function publishBase() {
+
+		$this->loadHeader();
+		if (!isset($_SESSION['id'])) {
+			$this->load->view("login/login");
+		} else {
+			$this->load->view("project/publishbase");
+		}
+		$this->loadFooter();
+
+	}
+
+
+	/* 发布项目 - 详细信息 */
+	public function publishDetails() {
+
+		$this->loadHeader();
+		if (!isset($_SESSION['id'])) {
+			$this->load->view("login/login");
+		} else {
+			$this->load->view("project/publishdetail");
+		}
+		$this->loadFooter();
+
+	}
+
+	/* 发布项目 - 公司信息 */
+	public function publishCompany() {
+
+		$this->loadHeader();
+		if (!isset($_SESSION['id'])) {
+			$this->load->view("login/login");
+		} else {
+			$this->load->view("project/publishcompany");
+		}
+		$this->loadFooter();
+
+	}
+
 	/* 获取AccsssKey */
 	private function getAccessKey() {
 

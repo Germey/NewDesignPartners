@@ -35,6 +35,37 @@ class Workshop extends CI_Controller {
 	}
 
 
+	/* 获取训练营详情 */
+	public function details($id) {
+
+		$this->loadHeader();
+		if (!$this->wkshop->wkshopExists($id)) {
+			$data['content'] = "训练营不存在";
+			$data['redirect'] = "main";
+			$this->load->view("message", $data);
+		} else {
+			$result = $this->wkshop->getDetailsByid($id);
+			/* 获得加入该训练营的设计师 */
+			$designers = $this->wkshop->getJoinedDesigners($id);
+			for($i=0;$i<count($designers);$i++){
+				$designers[$i]['image'] = $this->getUrlByKey($designers[$i]['image']);
+			}
+			/* 是否已经加入 */
+			$joined = 0;
+			if(isset($_SESSION['id'])){
+				$joined = $this->wkshop->isJoined($id,$_SESSION['id']);
+			}
+			$result['image'] = $this->getUrlByKey($result['image']);
+			$result['large_image'] = $this->getUrlByKey($result['large_image']);
+			$data['workshop'] = $result;
+			$data['designers'] = $designers;
+			$data['joined'] = $joined;
+			$this->load->view("workshop/details", $data);
+		}
+		$this->loadFooter();
+
+	}
+
 	/* 读取项目列表 */
 	public function loadWorkshopsList($id) {
 

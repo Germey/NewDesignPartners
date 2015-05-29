@@ -45,9 +45,11 @@
 
 		/* 获取加入某个项目的设计师 */
 		public function getJoinedDesigners($id){
+
 			$sql = "select * from proj_designer a,designer b where a.designer_id = b.id and a.project_id = ?";
 			$result = $this->db->query($sql,$id);
 			return $result->result_array();
+
 		}
 
 
@@ -65,7 +67,7 @@
 		}
 
 		/* 传入设计师id和项目id判断设计师是否加入 */
-		public function isJoined($projId,$desId){
+		public function isJoined($projId,$desId) {
 			$join = 0;
 			$sql = "select * from proj_designer where project_id = ? and designer_id = ?";
 			$datas[0] = $projId;

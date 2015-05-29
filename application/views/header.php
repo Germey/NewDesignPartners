@@ -49,7 +49,7 @@
                 <a href="<?php echo site_url();?>/login/logout">登出</a>
                 <?php } ?>
               </li>
-              <li><a href="#">设计需求提交</a></li>
+              <li><a href="<?php echo site_url();?>/project/publishBase">设计需求提交</a></li>
             </ul>
           </div>
         </div>

@@ -459,6 +459,214 @@ form {
 	text-align: right;
 }
 
+/* 项目详情 */
+#wkshop-details {
+	background-color: #F8F8F8;
+}
+#wkshop-details .left {
+	padding: 20px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin-bottom: 30px;
+}
+#wkshop-details .wkshop-title {
+	text-align: center;
+	margin: 40px 0;
+}
+#wkshop-details .brief img {
+	width: 100%;
+}
+#wkshop-details .left .item {
+	border-top: 1px solid #EEE;
+}
+#wkshop-details .left .content {
+	margin: 20px;
+	font-size: 14px;
+}
+#wkshop-details .left .title {
+	font-size: 15px;
+	margin: 20px 0;
+}
+#wkshop-details .right {
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin-bottom: 30px;
+}
+#wkshop-details .right .item {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #EEE;
+}
+#wkshop-details .joined-designer .title {
+	text-align: center;
+	margin: 20px;
+}
+#wkshop-details .joined-designer .item {
+	overflow: hidden;
+	padding: 6px;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+}
+#wkshop-details .joined-designer .single {
+	width: 120px;
+	height: 140px;
+}
+#wkshop-details .joined-designer .single .name {
+	margin-top: 10px;
+}
+#wkshop-details .joined-designer .single .name a{
+	color: #333;
+	text-decoration: none;
+}
+#wkshop-details .joined-designer .single img {
+	width: 100px;
+	height: 100px;
+}
+
+/* 发布项目基本内容 */
+#publish-base {
+	background-color: #F8F8F8;
+}
+#publish-base .left {
+	padding: 40px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 30px 0;
+}
+#publish-base  .right {
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 30px 0;
+}
+#publish-base  .left .item {
+	border-top: 1px solid #EEE;
+}
+#publish-base .left .title {
+	font-size: 15px;
+	margin: 20px 0;
+}
+#publish-base .left .content {
+	margin: 20px;
+	font-size: 14px;
+}
+#publish-base .right .item {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #EEE;
+}
+#publish-base .conserve {
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 20px 0px;
+	padding: 20px;
+}
+#publish-base input[type="button"] {
+	width: 150px;
+	height: 40px;
+}
+
+/* 发布项目详细内容 */
+#publish-details {
+	background-color: #F8F8F8;
+}
+#publish-details .left {
+	padding: 40px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 30px 0;
+}
+#publish-details  .right {
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 30px 0;
+}
+#publish-details .left .item {
+	border-top: 1px solid #EEE;
+}
+#publish-details .left .title {
+	font-size: 15px;
+	margin: 20px 0;
+}
+#publish-details .left .content {
+	margin: 20px;
+	font-size: 14px;
+}
+#publish-details .right .item {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #EEE;
+}
+#publish-details .conserve {
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 20px 0px;
+	padding: 20px;
+}
+#publish-details input[type="button"] {
+	width: 150px;
+	height: 40px;
+}
+
+/* 发布项目公司内容 */
+#publish-company {
+	background-color: #F8F8F8;
+}
+#publish-company .left {
+	padding: 40px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 30px 0;
+}
+#publish-company  .right {
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 30px 0;
+}
+#publish-company .left .item {
+	border-top: 1px solid #EEE;
+}
+#publish-company .left .title {
+	font-size: 15px;
+	margin: 20px 0;
+}
+#publish-company .left .content {
+	margin: 20px;
+	font-size: 14px;
+}
+#publish-company .right .item {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #EEE;
+}
+#publish-company .conserve {
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin: 20px 0px;
+	padding: 20px;
+}
+#publish-company input[type="button"] {
+	width: 150px;
+	height: 40px;
+}
+
 /* 设计师列表 */
 #designers .single {
 	width: 200px;
