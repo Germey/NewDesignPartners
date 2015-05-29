@@ -90,7 +90,7 @@ class Designer extends CI_Controller {
 	}
 
 	/* 设计师列表 */
-	public function loadDesignersList() {
+	public function loadDesignersList($id) {
 
 		$designers = $this->des->getAllDesigners();
 	    $pageAll = count($designers);
@@ -112,7 +112,6 @@ class Designer extends CI_Controller {
 			$result[$i]['image'] = $this->getUrlByKey($result[$i]['image']);
 		}
 		$data['designers'] = $result;
-		
 		$data['paginations'] = $this->pagination->create_links();
 		$this->load->view("designer/designer",$data);
 

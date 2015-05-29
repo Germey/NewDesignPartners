@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav">
               <li><a href="<?php echo site_url()?>/project">项目</a></li>
               <li><a href="<?php echo site_url()?>/workshop">训练营</a></li>
-              <li><a href="#">设计师</a></li>
+              <li><a href="<?php echo site_url()?>/designer">设计师</a></li>
               <li><a href="#">关于</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
