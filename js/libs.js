@@ -55,3 +55,9 @@ function message(content) {
 		$(".label label script").remove();
 	});
 }
+
+
+function wrapPagination() {
+	$(".pagi ul a").wrapAll("<li></li>");
+	$(".pagi ul strong").wrapAll("<li><a></a></li>");
+}

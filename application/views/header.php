@@ -29,8 +29,8 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="#">项目</a></li>
-              <li><a href="#">训练营</a></li>
+              <li><a href="<?php echo site_url()?>/project">项目</a></li>
+              <li><a href="<?php echo site_url()?>/workshop">训练营</a></li>
               <li><a href="#">设计师</a></li>
               <li><a href="#">关于</a></li>
             </ul>
@@ -39,7 +39,7 @@
                 <?php if (!isset($_SESSION['name'])) { ?>
                 <a href="<?php echo site_url();?>/login">登录</a>
                 <?php } else { ?>
-                <a href="<?php echo site_url();?>/login"><?php echo $_SESSION['name'];?></a>
+                <a href="<?php echo site_url();?>/designer/details/<?php echo $_SESSION['id'];?>"><?php echo $_SESSION['name'];?></a>
                 <?php } ?>
               </li>
               <li>

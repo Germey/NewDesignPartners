@@ -60,6 +60,7 @@
     <script src="<?php echo base_url()?>js/jquery.validate.js"></script>
     <script src="<?php echo base_url()?>js/libs.js"></script>
     <script src="<?php echo base_url()?>js/main.js"></script>
+    <script src="<?php echo base_url()?>js/designer.js"></script>
     <script type="text/javascript">
 	function getWrongPic() {
 		return '<?php echo base_url();?>images/wrong.png';
@@ -81,6 +82,9 @@
 	}
 	function getPasswordCheckURL() {
 		return '<?php echo site_url();?>/login/passwordCheck';
+	}
+	function getJoinedProjectsURL() {
+		return '<?php echo site_url();?>/designer/getJoinedProjects';
 	}
     </script>
 	</body>

@@ -68,5 +68,39 @@
 			
 		}
 
+		/* 通过用户ID获得个人信息 */
+		public function getInfoById($id) {
+
+			$sql = "select * from designer where id = '$id'";
+			$result = $this->db->query($sql)->result_array();
+			if ($result) {
+				return $result[0];
+			} else {
+				return null;
+			}
+			
+		}
+
+		/* 通过用户id获取用户已经加入的项目 */
+		public function getJoinedProjectsById($id) {
+			$sql = "select * from proj_designer a,project b where a.project_id = b.id and a.designer_id = ".$id;
+			$result = $this->db->query($sql)->result_array();
+			return $result;
+		}
+
+		/* 获得所有的设计师 */
+		public function getAllDesigners(){
+			$sql = "select * from designer";
+			$result = $this->db->query($sql);
+			return $result->result_array();
+		}
+
+		/* 获得特定的设计师 */
+		public function getLimitDesigners($start,$pageNum){
+			$sql = "select * from designer limit ".$start.",".$pageNum;
+			$result = $this->db->query($sql);
+			return $result->result_array();
+		}
+
 
 	}

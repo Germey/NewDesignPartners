@@ -337,6 +337,149 @@ form {
 	width: 100%;
 }
 
+/* 项目列表页面 */
+#projects .single {
+	padding: 50px;
+	border: 1px solid #EEE;
+	border-top: none;
+}
+#projects .intro-img{
+	width: 230px;
+	margin: auto;
+}
+#projects .intro-img img {
+	width: 230px;
+	height: 150px;
+}
+#projects .single a {
+	color: #333;
+}
+#projects .single .title {
+	font-size: 20px;
+
+}
+#projects .single .item {
+	margin: 5px 0;
+}
+#projects .pagi {
+	text-align: right;
+}
+
+/* 训练营列表 */
+#workshops .single {
+	padding: 50px;
+	border: 1px solid #EEE;
+	border-top: none;
+}
+#workshops .intro-img{
+	width: 230px;
+	margin: auto;
+}
+#workshops .intro-img img {
+	width: 230px;
+	height: 150px;
+}
+#workshops .single a {
+	color: #333;
+}
+#workshops .single .title {
+	font-size: 20px;
+
+}
+#workshops .single .item {
+	margin: 5px 0;
+}
+#workshops .pagi {
+	text-align: right;
+}
+
+/* 个人信息页面 */
+#designer-details .brief {
+	position: relative;
+}
+#designer-details .brief>img {
+	width: 100%;
+}
+#designer-details .content {
+	position: absolute;
+	left: 15%;
+	right: 15%;
+	text-align: center;
+	color: #FEFEFE;
+}
+#designer-details .content .icon>img {
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+}
+#designer-details .content .name {
+	font-size: 18px;
+}
+#designer-details .content .intro {
+	font-size: 15px;
+}
+#designer-details .details {
+	margin: 50px 0;
+}
+@media (min-width: 768px) {
+	#designer-details .content {
+		bottom: 150px;
+	}
+	#designer-details .brief>img {
+		height: 500px;
+	}
+	#designer-details .content .icon>img {
+		width: 150px;
+	}
+	#designer-details .item {
+		margin: 30px 0;
+	}
+}
+@media (max-width: 768px) and (min-width: 524px) {
+	#designer-details .content {
+		bottom: 130px;
+	}
+	#designer-details .brief>img {
+		height: 500px;
+	}
+	#designer-details .content .icon>img {
+		width: 120px;
+	}
+	#designer-details .item {
+		margin: 30px 0;
+	}
+}
+@media (max-width: 523px) {
+	#designer-details .content {
+		bottom: 80px;
+	}
+	#designer-details .brief>img {
+		height: 500px;
+	}
+	#designer-details .content .icon>img {
+		width: 110px;
+	}
+	#designer-details .item {
+		margin: 30px 0;
+	}
+}
+#tab-my-project .row>div {
+	padding: 20px;
+}
+#tab-my-project img {
+	width: 230px;
+	height: 150px;
+	text-align: center;
+}
+#tab-my-project .img-wrap {
+	width: 230px;
+	margin: auto;
+}
+#tab-my-project .name {
+	text-align: center;
+	margin: 20px 0;
+}
 /* 底部版权 */
 #footer {
 	background-color: #333;
