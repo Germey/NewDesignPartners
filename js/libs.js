@@ -58,6 +58,9 @@ function message(content) {
 
 
 function wrapPagination() {
-	$(".pagi ul a").wrapAll("<li></li>");
-	$(".pagi ul strong").wrapAll("<li><a></a></li>");
+	$(".pagi ul strong").wrapAll("<a></a>");
+	$(".pagi ul a").each(function() {
+		$(this).wrapAll("<li></li>");
+	});
+	
 }

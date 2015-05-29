@@ -393,6 +393,52 @@ form {
 	text-align: right;
 }
 
+/* 设计师列表 */
+#designers .single {
+	width: 200px;
+	height: 255px;
+	margin: 50px auto 50px auto;
+	text-align: center;
+	background-color: rgba(233,233,233,0.2);
+	padding-top: 20px;
+}
+#designers .single .name {
+	font-size: 16px;
+	margin-top: 15px;
+}
+#designers .single .sex {
+	font-size: 12px;
+	margin-top: 8px;
+	color: rgba(0,0,0,0.5);
+}
+#designers .single .information {
+	width: 80px;
+	height: 30px;
+	margin-top: 20px;
+	background-color: rgba(212, 243, 207, 0.7);
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 30px;
+}
+#designers .single .information a {
+	color: #777;
+	font-size: 12px;
+	text-decoration: none;
+}
+#designers .single img {
+	width: 100px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+}
+#designers .pagi {
+	text-align: right;
+}
+
 /* 个人信息页面 */
 #designer-details .brief {
 	position: relative;
