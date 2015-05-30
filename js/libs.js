@@ -152,3 +152,6 @@ function getStoreBaseURL(){
 function getPublishDetailsURL(){
 	return getSiteURL() + '/project/publishDetails';
 }
+function getStoreDetailsURL(){
+	return getSiteURL() + '/project/storeDetails';
+}

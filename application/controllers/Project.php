@@ -150,10 +150,37 @@ class Project extends CI_Controller {
 		if (!isset($_SESSION['id'])) {
 			$this->load->view("login/login");
 		} else {
-			$own = $this->proj->checkOwnProj($proj_id, $uid);
-			$this->load->view("project/publishdetail");
+			$own = $this->proj->checkOwnProj($proj_id, $_SESSION['id']);
+			if (!$own) {
+				$data['content'] = "您无权修改此项目";
+				$data['redirect'] = "main";
+				$this->load->view("message", $data);
+			} else {
+				$data['proj_id'] = $proj_id;
+				$this->load->view("project/publishdetail", $data);
+			}
+			
 		}
 		$this->loadFooter();
+
+	}
+
+	/* 发布项目 - 保存项目详细信息 */
+	public function storeDetails() {
+
+		/* 如果未登录 */
+		if (!isset($_SESSION['id'])) {
+			$this->load->view("login/login");
+		/* 如果秘钥不匹配 */
+		} else {
+			$data = $_POST;
+			$result = $this->proj->storeDetails($data);
+			if ($result) {
+				echo $result;
+			} else {
+				echo "0";
+			}
+		}
 
 	}
 
@@ -238,10 +265,7 @@ class Project extends CI_Controller {
 		
 	}
 
-	/* 接受七牛回调 */
-	public function getCallBackBody() {
-		var_dump($_POST);
-	}
+
 
 }	
 

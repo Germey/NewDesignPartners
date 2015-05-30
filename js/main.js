@@ -241,7 +241,33 @@ $(function(){
 
 
 	/* 提交设计需求 - 详细信息 */
+	$('#publish-details input[name="save"]').click(function() {
+		alert("dd");
+		var proj_detail_res = nameValidate($("#publish-details .proj_detail textarea").val());
+		formInputChange(proj_detail_res, $("#publish-details .proj_detail"));
+		var des_need_res = nameValidate($("#publish-details .des_need textarea").val());
+		formInputChange(des_need_res, $("#publish-details .des_need"));
+		var res_need_res = nameValidate($("#publish-details .res_need textarea").val());
+		formInputChange(res_need_res, $("#publish-details .res_need"));
+		var proj_time_res = nameValidate($("#publish-details #proj_time").val());
+		formInputChange(proj_time_res, $("#publish-details .time"));
+		if (proj_detail_res&&des_need_res&&res_need_res&&proj_time_res){
+			$.post(getStoreDetailsURL(), {
+			proj_detail: $("#publish-details .proj_detail textarea").val(),
+			des_need:  $("#publish-details .des_need textarea").val(),
+			res_need: $("#publish-details .res_need textarea").val(),
+			proj_time: $("#publish-details #proj_time").val(),
+			proj_id: $("#publish-details input#proj_id").val()
+		}, function(data) {
+			if (data != "0") {
+				message("恭喜您保存成功");
+				$("#publish-details .left").append($('<input type="hidden" name="proj_id" id="proj_id" value="'+data+'">'));
+			}
+		});
+		}
+		
 
+	});
 
 		
 

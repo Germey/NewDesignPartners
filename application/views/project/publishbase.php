@@ -67,6 +67,7 @@
 					</div>
 				</div>
 				<input type="hidden" value="<?php echo $_SESSION['id']?>" name="uid" id="uid">
+				
 			</div>
 			<!-- 主栏目结束 -->
 			<!-- 侧栏 -->

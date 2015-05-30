@@ -7,46 +7,47 @@
 		<div class="row">
 			<!-- 主栏目 -->
 			<div class="left col-md-8 col-xs-12">
-				<div class="item">
+				<div class="item proj_detail">
 					<div class="title">项目详细介绍*</div>
 					<div class="content">
-						<textarea class="form-control" rows="3"></textarea>
+						<textarea class="form-control" rows="3" name="proj_detail" id="proj_detail"></textarea>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item des_need">
 					<div class="title">设计需求*</div>
 					<div class="content">
-						<textarea class="form-control" rows="3"></textarea>
+						<textarea class="form-control" rows="3" name="des_need" id="des_need"></textarea>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item res_need">
 					<div class="title">人员需求*</div>
 					<div class="content">
-						<textarea class="form-control" rows="3"></textarea>
+						<textarea class="form-control" rows="3" name="res_need" id="res_need"></textarea>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item time">
 					<div class="title">项目时间计划*</div>
 					<div class="content">
-						<input type="text" class="form-control text" placeholder="项目时间计划" name="proj_loc" id="proj_loc">
+						<input type="text" class="form-control text" placeholder="项目时间计划" name="proj_time" id="proj_time">
 					</div>
 				</div>
-				<div class="item">
+				<div class="item budget">
 					<div class="title">项目预算*</div>
 					<div class="content">
 						<ul>
-							<li><input type="checkbox">＜10,000元</li>
-							<li><input type="checkbox">10,000-30,000元</li>
-							<li><input type="checkbox">30,000-50,000元</li>
-							<li><input type="checkbox">50,000-100,000元</li>
-							<li><input type="checkbox">＞100,000元</li>
+							<li><input type="checkbox" value="1">＜10,000元</li>
+							<li><input type="checkbox" value="2">10,000-30,000元</li>
+							<li><input type="checkbox" value="3">30,000-50,000元</li>
+							<li><input type="checkbox" value="4">50,000-100,000元</li>
+							<li><input type="checkbox" value="5">＞100,000元</li>
 						</ul>
 					</div>
 				</div>
 				<div class="item">
 					<div class="title"></div>
 					<div class="content">
-						<input type="button" class="btn btn-primary" value="保存">
+						<input type="button" class="btn btn-primary" value="保存" name="save">
+						<input type="hidden" value="<?php echo $proj_id?>" name="proj_id" id="proj_id">
 					</div>
 				</div>
 			</div>

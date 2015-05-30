@@ -104,7 +104,37 @@
 			
 		}
 		
+		/* 储存项目基本详细 */
+		public function storeDetails($data) {
+			
+			$details = $data['proj_detail'];
+			$des_need = $data['des_need'];
+			$res_need = $data['res_need'];
+			$proj_time = $data['proj_time'];
+			$proj_id = $data['proj_id'];
+			$sql = "update project set details = '$details',des_need = '$des_need',res_need = '$res_need',start_date = '$proj_time' where id = $proj_id";
+			echo $sql;
+			$result = $this->db->query($sql);
+			if ($result) {
+				$id = $this->db->insert_id();
+				return $id;
+			} else {
+				return false;
+			}
+			
+		}
 
-		public function checkOwnProj
+		/* 查看是不是这个用户发布的项目 */
+		public function checkOwnProj($proj_id, $uid) {
+
+			$sql = "select * from project where id = $proj_id and publish_id = $uid";
+			$result = $this->db->query($sql)->result_array();
+			if ($result) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
 		
 	}
