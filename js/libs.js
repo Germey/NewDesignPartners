@@ -74,9 +74,81 @@ function checkBoxValidate(groups) {
 		}
 	});
 	/* 数组形式返回选中的元素 */
-	if (arr) {
+	if (arr.length != 0) {
 		return arr;
 	} else {
 		return false;
 	}
+}
+
+/* 检查上传的文件是否合法 */
+function isValidateFile() { 
+	var extend = document.form.file.value.substring(document.form.file.value.lastIndexOf(".") + 1);
+	if (extend == "") {
+		message("请选择头像");
+		return false;
+	}
+	else {
+		if (!(extend == "jpg" || extend == "png")) {
+		message("请上传后缀名为jpg或png的文件!");
+		return false;
+		}
+	}
+	return true;
+}
+
+/* 表单输入验证变化 */
+function formInputChange(success, input) {
+	if(!success) {
+		input.removeClass("has-success").addClass("has-error");
+	} else {
+		input.removeClass("has-error").addClass("has-success");
+	}
+}
+
+
+
+/* 获得错误提示的图片 */
+function getWrongPic() {
+	return getBaseURL() + 'images/wrong.png';
+}
+/* 获得正确提示的图片 */
+function getRightPic() {
+	return getBaseURL() + 'images/right.png';
+}
+/* 验证码检验 */
+function getCodeCheckURL() {
+	return getSiteURL() + '/register/codeCheck';
+}
+/* 验证邮箱是否存在 */
+function getEmailExistsURL() {
+	return getSiteURL() + '/register/emailExists';
+}
+/* 验证手机是否存在 */
+function getPhoneExistsURL() {
+	return getSiteURL() + '/register/phoneExists';
+}
+/* 验证邮箱是否完成注册 */
+function getEmailRegisteredURL() {
+	return getSiteURL() + '/login/emailRegistered';
+}
+/* 验证密码 */
+function getPasswordCheckURL() {
+	return getSiteURL() + '/login/passwordCheck';
+}
+/* 获得已经加入的项目信息 */
+function getJoinedProjectsURL() {
+	return getSiteURL() + '/designer/getJoinedProjects';
+}
+/* 获得通过图片名获得链接 */
+function getImageByKeyURL() {
+	return getSiteURL() + '/project/getImageUrlByKey';
+}
+/* 储存基本信息 */
+function getStoreBaseURL(){
+	return getSiteURL() + '/project/storeBase';
+}
+/* 提交详细信息 */
+function getPublishDetailsURL(){
+	return getSiteURL() + '/project/publishDetails';
 }

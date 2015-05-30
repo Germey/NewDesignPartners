@@ -164,9 +164,85 @@ $(function(){
 	$('#publish-base input[name="save"]').click(function() {
 		var ser_kind_res = checkBoxValidate($('#publish-base .ser-kind input[type="checkbox"]'));
 		var des_kind_res = checkBoxValidate($('#publish-base .des-kind input[type="checkbox"]'));
+		var proj_name_res = nameValidate($("#publish-base input#proj_name").val());
+		formInputChange(proj_name_res, $("#publish-base .proj_name"));
+		var proj_loc_res = nameValidate($("#publish-base input#proj_loc").val());
+		formInputChange(proj_loc_res, $("#publish-base .proj_loc"));
+		var proj_pic_res = $("#publish-base .proj_pic .img").html() == ""? false : true;
+		formInputChange(proj_pic_res, $("#publish-base .proj_pic"));
+		var proj_des_res = nameValidate($("#publish-base .proj_des textarea").val());
+		formInputChange(proj_des_res, $("#publish-base .proj_des"));
+		if (!ser_kind_res) {
+			message("请选择服务类型");
+		} else if (!des_kind_res) {
+			message("请选择设计需求类别");
+		} else if (!proj_pic_res) {
+			message("请上传项目图片");
+		} else {
+			$.post(getStoreBaseURL(), {
+				ser_kind: ser_kind_res.join(","),
+				des_kind: des_kind_res.join(","),
+				proj_name: $("#publish-base input#proj_name").val(),
+				proj_loc: $("#publish-base input#proj_loc").val(),
+				proj_pic: $("#publish-base .proj_pic img").attr("src"),
+				proj_des: $("#publish-base .proj_des textarea").val(),
+				uid: $("#publish-base input#uid").val()
+			}, function(data) {
+				if (data != "0") {
+					message("恭喜您保存成功");
+					$("#publish-base .left").append($('<input type="hidden" name="proj_id" id="proj_id" value="'+data+'">'));
+				}
+			});
+		}
+
+	});
+
+	$('#publish-base #proj-pic-upload #sub').click(function() {
+		var options = {  
+			beforeSubmit: isValidateFile,
+	        success: showResponse,  
+	        resetForm: true, 
+	        dataType: 'json' 
+	    };
+		$('#proj-pic-upload').ajaxSubmit(options);
+	});
+
+	$('#publish-base #proj-pic-upload #delete').click(function() {
+		var proj_loc_res = $("#publish-base .proj_pic .img").html() == ""? false : true;
+		if (!proj_loc_res) {
+			message("请先上传图片");
+		} else {
+			$("#publish-base .proj_pic .img").html("");
+		}
+	});
+
+	function showResponse(responseText, statusText)  { 
+	    $.post(getImageByKeyURL(), {
+	    	key:responseText.key
+	    }, function(data) {
+	    	$("#publish-base .proj_pic .img").html("");
+	    	$("<img>").addClass("proj_img").attr("src",data).appendTo("#publish-base .proj_pic .img");
+	    	var oldkey = $("#publish-base .proj_pic input#key").val();
+	    	var id = oldkey.split("_")[0];
+	    	$("#publish-base .proj_pic input#key").val(id+"_"+new Date().getTime());
+	    })
+	}
+
+
+	$('#publish-base #next-step').click(function() {
+
+		if ($("#publish-base .left #proj_id").val()) {
+			window.location.href = getPublishDetailsURL()+ "/" + $("#publish-base .left #proj_id").val();
+		} else {
+			$('#publish-base input[name="save"]').trigger(jQuery.Event("click"));
+		}
 		
 	});
 
-	
+
+	/* 提交设计需求 - 详细信息 */
+
+
+		
 
 });

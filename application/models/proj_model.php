@@ -9,7 +9,7 @@
 		/* 获得项目概览 四个项目 */
 		public function loadProjOverview() {
 
-			$sql = "select * from project limit 0,4";
+			$sql = "select * from project where valid = 1 limit 0,4 ";
 			$result = $this->db->query($sql);
 			return $result->result_array();
 			
@@ -18,7 +18,7 @@
 		/* 获取所有的项目信息 */
 		public function getAllProjects() {
 
-			$sql = "select * from project";
+			$sql = "select * from project where valid = 1";
 			$result = $this->db->query($sql);
 			return $result->result_array();
 
@@ -28,7 +28,7 @@
 		/* 获取特定的项目 */
 		public function getLimitProjects($start,$pageNum) {
 
-			$sql = "select * from project limit ".$start.",".$pageNum;
+			$sql = "select * from project where valid = 1 limit $start,$pageNum";
 			$result = $this->db->query($sql);
 			return $result->result_array();
 
@@ -83,4 +83,28 @@
 			}
 			return $join;
 		}
+
+		/* 储存项目基本详细 */
+		public function storeBase($data) {
+			$name = $data['proj_name'];
+			$location = $data['proj_loc'];
+			$image = $data['proj_pic'];
+			$brief = $data['proj_des'];
+			$ser_kind = $data['ser_kind'];
+			$des_kind = $data['des_kind'];
+			$publish_id = $data['uid'];
+			$sql = "insert into project (name,location,image,brief,ser_kind,des_kind,publish_id) values ('$name','$location','$image','$brief','$ser_kind','$des_kind',$publish_id)";
+			$result = $this->db->query($sql);
+			if ($result) {
+				$id = $this->db->insert_id();
+				return $id;
+			} else {
+				return false;
+			}
+			
+		}
+		
+
+		public function checkOwnProj
+		
 	}

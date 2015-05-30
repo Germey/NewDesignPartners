@@ -552,10 +552,17 @@ form {
 	margin: 20px;
 	font-size: 14px;
 }
+#publish-base .left li input[type="checkbox"] {
+	margin-top: 5px;
+	margin-right: 5px;
+}
 #publish-base .right .item {
 	padding: 20px;
 	text-align: center;
 	border-bottom: 1px solid #EEE;
+}
+#publish-base .proj_pic img.proj_img {
+	max-width: 100%;
 }
 #publish-base .conserve {
 	justify-content: space-around;

@@ -29,25 +29,32 @@
 						</ul>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item proj_name">
 					<div class="title">项目名称*</div>
 					<div class="content">
 						<input type="text" class="form-control text" placeholder="项目名称" name="proj_name" id="proj_name">
 					</div>
 				</div>
-				<div class="item">
+				<div class="item proj_loc">
 					<div class="title">项目地点*</div>
 					<div class="content">
 						<input type="text" class="form-control text" placeholder="项目地点" name="proj_loc" id="proj_loc">
 					</div>
 				</div>
-				<div class="item">
+				<div class="item proj_pic">
 					<div class="title">项目图片*</div>
+					<div class="img"></div>
 					<div class="content">
-						<input type="file" placeholder="项目图片" name="proj_pic" id="proj_pic">
+						<form id="proj-pic-upload" method="post" action="http://up.qiniu.com" name = "form" enctype="multipart/form-data" onsubmit="return isValidateFile('file');">
+							<input type="hidden"  id="token" name="token"  value=<?php echo $upToken?>>
+							<input type="hidden" name="key" id="key" value="<?php echo $id;?>_<?php echo time();?>">
+							<input name="file"  type="file" id="file"/><br>
+							<input type="button" id="sub" class="btn btn-primary" value="提交" >
+							<input type="button" id="delete" class="btn btn-danger" value="删除" >
+						</form>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item proj_des">
 					<div class="title">项目一句话描述*</div>
 					<div class="content">
 						<textarea class="form-control" rows="3"></textarea>
@@ -59,7 +66,7 @@
 						<input type="button" class="btn btn-primary" value="保存" name="save">
 					</div>
 				</div>
-				<input type="hidden" value="<?php echo md5($_SESSION['id'].$_SESSION['email'])?>" name="secret" id="secret">
+				<input type="hidden" value="<?php echo $_SESSION['id']?>" name="uid" id="uid">
 			</div>
 			<!-- 主栏目结束 -->
 			<!-- 侧栏 -->
@@ -73,7 +80,7 @@
 		</div>
 		<div class="conserve">
 			<input type="button" class="btn" value="上一步" disabled="disabled">
-			<input type="button" class="btn btn-primary" value="下一步">
+			<input type="button" class="btn btn-primary" id="next-step" value="下一步">
 		</div>
 	</div>
 </div>

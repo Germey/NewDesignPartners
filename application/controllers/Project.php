@@ -115,20 +115,42 @@ class Project extends CI_Controller {
 		if (!isset($_SESSION['id'])) {
 			$this->load->view("login/login");
 		} else {
-			$this->load->view("project/publishbase");
+			$data['upToken'] = $this->getUptoken();
+			$data['id'] = $_SESSION['id'];
+			$this->load->view("project/publishbase", $data);
 		}
 		$this->loadFooter();
 
 	}
 
+	/* 发布项目 - 保存项目基本信息 */
+	public function storeBase() {
+
+		/* 如果未登录 */
+		if (!isset($_SESSION['id'])) {
+			$this->load->view("login/login");
+		/* 如果秘钥不匹配 */
+		} else {
+			$data = $_POST;
+			$result = $this->proj->storeBase($data);
+			if ($result) {
+				echo $result;
+			} else {
+				echo "0";
+			}
+		}
+
+	}
+
 
 	/* 发布项目 - 详细信息 */
-	public function publishDetails() {
+	public function publishDetails($proj_id) {
 
 		$this->loadHeader();
 		if (!isset($_SESSION['id'])) {
 			$this->load->view("login/login");
 		} else {
+			$own = $this->proj->checkOwnProj($proj_id, $uid);
 			$this->load->view("project/publishdetail");
 		}
 		$this->loadFooter();
@@ -181,4 +203,45 @@ class Project extends CI_Controller {
 		
 	}
 
+
+	/* 传入资源名称，ajax请求使用 */
+	public function getImageUrlByKey() {
+		
+		$key = $_POST['key'];
+		/* 从七牛云存储获取URL */
+		require_once(dirname(__FILE__)."/../../qiniu/rs.php");
+		$bucket = "designpartners";
+		$domain = $bucket.".qiniudn.com";
+		$accessKey = $this->getAccessKey();
+		$secretKey = $this->getSecretKey();
+		Qiniu_SetKeys($accessKey, $secretKey);  
+		$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
+		$getPolicy = new Qiniu_RS_GetPolicy();
+		$privateUrl = $getPolicy->MakeRequest($baseUrl, null);
+		echo $privateUrl;
+		
+	}
+
+	/* 获取上传凭证 */
+	private function getUptoken() {
+	
+		require_once(dirname(__FILE__)."/../../qiniu/rs.php");
+		//远程存储空间名称
+		$bucket = 'designpartners';
+		$accessKey = $this->getAccessKey();
+		$secretKey = $this->getSecretKey();
+		Qiniu_SetKeys($accessKey, $secretKey);
+		$putPolicy = new Qiniu_RS_PutPolicy($bucket);
+		$putPolicy->ReturnBody = '{"key": $(key),"bucket": $(bucket)}';
+		$upToken = $putPolicy->Token(null);
+		return $upToken;
+		
+	}
+
+	/* 接受七牛回调 */
+	public function getCallBackBody() {
+		var_dump($_POST);
+	}
+
 }	
+

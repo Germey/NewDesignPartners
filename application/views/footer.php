@@ -58,34 +58,19 @@
 	<script src="<?php echo base_url()?>js/jquery.min.js"></script>
     <script src="<?php echo base_url()?>js/bootstrap.js"></script>
     <script src="<?php echo base_url()?>js/jquery.validate.js"></script>
+    <script src="<?php echo base_url()?>js/jquery.form.js"></script>
     <script src="<?php echo base_url()?>js/libs.js"></script>
     <script src="<?php echo base_url()?>js/main.js"></script>
     <script src="<?php echo base_url()?>js/designer.js"></script>
     <script type="text/javascript">
-	function getWrongPic() {
-		return '<?php echo base_url();?>images/wrong.png';
-	}
-	function getRightPic() {
-		return '<?php echo base_url();?>images/right.png';
-	}
-	function getCodeCheckURL() {
-		return '<?php echo site_url();?>/register/codeCheck';
-	}
-	function getEmailExistsURL() {
-		return '<?php echo site_url();?>/register/emailExists';
-	}
-	function getPhoneExistsURL() {
-		return '<?php echo site_url();?>/register/phoneExists';
-	}
-	function getEmailRegisteredURL() {
-		return '<?php echo site_url();?>/login/emailRegistered';
-	}
-	function getPasswordCheckURL() {
-		return '<?php echo site_url();?>/login/passwordCheck';
-	}
-	function getJoinedProjectsURL() {
-		return '<?php echo site_url();?>/designer/getJoinedProjects';
-	}
+    /* 返回站点路径 */
+    function getSiteURL() {
+    	return '<?php echo site_url();?>';
+    }
+    /* 返回基础路径 */
+    function getBaseURL() {
+    	return '<?php echo base_url();?>';
+    }
     </script>
 	</body>
 </html>
