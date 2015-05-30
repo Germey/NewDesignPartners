@@ -7,25 +7,25 @@
 		<div class="row">
 			<!-- 主栏目 -->
 			<div class="left col-md-8 col-xs-12">
-				<div class="item">
+				<div class="item ser-kind">
 					<div class="title">服务类型*(*为必填项)</div>
 					<div class="content">
-						<ul>
-							<li><input type="checkbox">单纯的项目展示（只在平台上展示，感兴趣的设计师自行联系，平台不参与项目）</li>
-							<li><input type="checkbox">方案模糊，需要平台先征集方案（项目托管给平台，按照标准流程，从方案征集阶段开始）</li>
-							<li><input type="checkbox">方案清晰，需要平台招募团队实现（项目托管给平台，按照标准流程，从团队征集阶段开始）</li>
-							<li><input type="checkbox">项目整体外包（项目全权交由平台内部设计师团队完成，不走平台流程，效率更高，适合需求紧急型项目）</li>
+						<ul class="list-unstyled">
+							<li><input type="checkbox" value="1">单纯的项目展示（只在平台上展示，感兴趣的设计师自行联系，平台不参与项目）</li>
+							<li><input type="checkbox" value="2">方案模糊，需要平台先征集方案（项目托管给平台，按照标准流程，从方案征集阶段开始）</li>
+							<li><input type="checkbox" value="3">方案清晰，需要平台招募团队实现（项目托管给平台，按照标准流程，从团队征集阶段开始）</li>
+							<li><input type="checkbox" value="4">项目整体外包（项目全权交由平台内部设计师团队完成，不走平台流程，效率更高，适合需求紧急型项目）</li>
 						</ul>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item des-kind">
 					<div class="title">设计需求类别*</div>
 					<div class="content">
-						<ul>
-							<li><input type="checkbox">商业咨询（如商业模式、设计研究等）</li>
-							<li><input type="checkbox">服务策略（如服务设计，品牌设计等）</li>
-							<li><input type="checkbox">界面设计（如网站、App的交互设计、视觉设计等）</li>
-							<li><input type="checkbox">平面设计（如品牌VI、Logo标识、名片、海报等）</li>
+						<ul class="list-unstyled">
+							<li><input type="checkbox" value="1">商业咨询（如商业模式、设计研究等）</li>
+							<li><input type="checkbox" value="2">服务策略（如服务设计，品牌设计等）</li>
+							<li><input type="checkbox" value="3">界面设计（如网站、App的交互设计、视觉设计等）</li>
+							<li><input type="checkbox" value="4">平面设计（如品牌VI、Logo标识、名片、海报等）</li>
 						</ul>
 					</div>
 				</div>
@@ -56,9 +56,10 @@
 				<div class="item">
 					<div class="title"></div>
 					<div class="content">
-						<input type="button" class="btn btn-primary" value="保存">
+						<input type="button" class="btn btn-primary" value="保存" name="save">
 					</div>
 				</div>
+				<input type="hidden" value="<?php echo md5($_SESSION['id'].$_SESSION['email'])?>" name="secret" id="secret">
 			</div>
 			<!-- 主栏目结束 -->
 			<!-- 侧栏 -->

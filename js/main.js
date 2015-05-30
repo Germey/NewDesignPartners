@@ -157,7 +157,15 @@ $(function(){
 		}
 	});
 	
+	/* 分页标签包围一层<li> */
 	wrapPagination();
+
+	/* 提交设计需求 - 基础信息 */
+	$('#publish-base input[name="save"]').click(function() {
+		var ser_kind_res = checkBoxValidate($('#publish-base .ser-kind input[type="checkbox"]'));
+		var des_kind_res = checkBoxValidate($('#publish-base .des-kind input[type="checkbox"]'));
+		
+	});
 
 	
 

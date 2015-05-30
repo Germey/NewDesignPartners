@@ -56,11 +56,27 @@ function message(content) {
 	});
 }
 
-
+/* 分页包含一层<li> */
 function wrapPagination() {
 	$(".pagi ul strong").wrapAll("<a></a>");
 	$(".pagi ul a").each(function() {
 		$(this).wrapAll("<li></li>");
 	});
 	
+}
+
+/* 检查复选框的合法性 */
+function checkBoxValidate(groups) {
+	var arr = new Array();
+	$.each(groups, function(index, content) {
+		if (content.checked) {
+			arr.push(content.value);
+		}
+	});
+	/* 数组形式返回选中的元素 */
+	if (arr) {
+		return arr;
+	} else {
+		return false;
+	}
 }
