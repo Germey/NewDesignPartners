@@ -54,9 +54,6 @@ class Main extends CI_Controller {
 	private function loadProjOverview()	{
 
 		$result = $this->proj->loadProjOverview();
-		for($i=0;$i<count($result);$i++){
-			$result[$i]['image'] = $this->getUrlByKey($result[$i]['image']);
-		}
 		$var['projects'] = $result;
 		$this->load->view("main/project",$var);
 

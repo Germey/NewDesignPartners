@@ -58,6 +58,7 @@
 	<script src="<?php echo base_url()?>js/jquery.min.js"></script>
     <script src="<?php echo base_url()?>js/bootstrap.js"></script>
     <script src="<?php echo base_url()?>js/jquery.validate.js"></script>
+    <script src="<?php echo base_url()?>js/bootstrap-datetimepicker.min.js"></script>
     <script src="<?php echo base_url()?>js/jquery.form.js"></script>
     <script src="<?php echo base_url()?>js/libs.js"></script>
     <script src="<?php echo base_url()?>js/main.js"></script>

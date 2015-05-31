@@ -7,40 +7,54 @@
 		<div class="row">
 			<!-- 主栏目 -->
 			<div class="left col-md-8 col-xs-12">
-				<div class="item">
+				<div class="item company-name">
 					<div class="title">公司/企业名*</div>
 					<div class="content">
-						<textarea class="form-control" rows="3"></textarea>
+						<input type="text" class="form-control text" placeholder="公司/企业名" name="company-name" id="company-name">
 					</div>
 				</div>
-				<div class="item">
+				<div class="item company-logo">
 					<div class="title">企业LOGO*</div>
+					<div class="img"></div>
 					<div class="content">
-						<input type="file" placeholder="项目图片" name="proj_pic" id="proj_pic">
+						<form id="company-logo-upload" method="post" action="http://up.qiniu.com" name = "form" enctype="multipart/form-data" onsubmit="return isValidateFile('file');">
+							<input type="hidden"  id="token" name="token"  value=<?php echo $upToken?>>
+							<input type="hidden" name="key" id="key" value="<?php echo $id;?>_<?php echo time();?>">
+							<input name="file"  type="file" id="file"/><br>
+							<input type="button" id="sub" class="btn btn-primary" value="提交" >
+							<input type="button" id="delete" class="btn btn-danger" value="删除" >
+						</form>
 					</div>
 				</div>
-				<div class="item">
+				<div class="item company-location">
 					<div class="title">企业所在点*</div>
 					<div class="content">
-						<textarea class="form-control" rows="3"></textarea>
+						<input type="text" class="form-control text" placeholder="企业所在点" name="company-location" id="company-location">
 					</div>
 				</div>
-				<div class="item">
+				<div class="item charge-person">
 					<div class="title">联系人姓名*</div>
 					<div class="content">
-						<input type="text" class="form-control text" placeholder="联系人姓名" name="proj_loc" id="proj_loc">
+						<input type="text" class="form-control text" placeholder="联系人姓名" name="charge-person" id="charge-person">
 					</div>
 				</div>
-				<div class="item">
+				<div class="item charge-phone">
 					<div class="title">联系方式*</div>
 					<div class="content">
-						<input type="text" class="form-control text" placeholder="联系方式" name="proj_loc" id="proj_loc">
+						<input type="text" class="form-control text" placeholder="联系方式" name="charge-phone" id="charge-phone">
 					</div>
 				</div>
-				<div class="item">
+				<div class="item charge-email">
+					<div class="title">联系邮箱</div>
+					<div class="content">
+						<input type="text" class="form-control text" placeholder="联系邮箱" name="charge-email" id="charge-email">
+					</div>
+				</div>
+				<div class="item save">
 					<div class="title"></div>
 					<div class="content">
-						<input type="button" class="btn btn-primary" value="保存">
+						<input type="button" class="btn btn-primary" value="保存" name="save" id="save">
+						<input type="hidden" value="<?php echo $proj_id?>" name="proj_id" id="proj_id">
 					</div>
 				</div>
 			</div>
@@ -55,8 +69,7 @@
 			<!-- 侧栏结束 -->
 		</div>
 		<div class="conserve">
-			<input type="button" class="btn btn-primary" value="上一步">
-			<input type="button" class="btn btn-primary" value="提交">
+			<input type="button" class="btn btn-primary" value="提交" name="sub-proj" id="sub-proj">
 		</div>
 	</div>
 </div>

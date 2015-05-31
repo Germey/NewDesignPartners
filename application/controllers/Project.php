@@ -52,10 +52,6 @@ class Project extends CI_Controller {
 		$this->pagination->initialize($config);
 		$start = $id;
 		$result = $this->proj->getLimitProjects($start,$pagenum);
-		for($i=0;$i<count($result);$i++){
-			$result[$i]['image'] = $this->getUrlByKey($result[$i]['image']);
-			$result[$i]['large_image'] = $this->getUrlByKey($result[$i]['large_image']);
-		}
 		$data['projects'] = $result;
 		$data['paginations'] = $this->pagination->create_links();
 		$this->load->view("project/project",$data);
@@ -96,8 +92,6 @@ class Project extends CI_Controller {
 			if(isset($_SESSION['id'])){
 				$joined = $this->proj->isJoined($id,$_SESSION['id']);
 			}
-			$result['image'] = $this->getUrlByKey($result['image']);
-			$result['large_image'] = $this->getUrlByKey($result['large_image']);
 			$data['project'] = $result;
 			$data['designers'] = $designers;
 			$data['joined'] = $joined;
@@ -185,17 +179,42 @@ class Project extends CI_Controller {
 	}
 
 	/* 发布项目 - 公司信息 */
-	public function publishCompany() {
+	public function publishCompany($proj_id) {
 
 		$this->loadHeader();
 		if (!isset($_SESSION['id'])) {
 			$this->load->view("login/login");
 		} else {
-			$this->load->view("project/publishcompany");
+			$data['upToken'] = $this->getUptoken();
+			$data['id'] = $_SESSION['id'];
+			$data['proj_id'] = $proj_id;
+			$this->load->view("project/publishcompany", $data);
 		}
 		$this->loadFooter();
 
 	}
+
+
+	/* 发布项目 - 保存项目公司信息 */
+	public function storeCompany() {
+
+		/* 如果未登录 */
+		if (!isset($_SESSION['id'])) {
+			$this->load->view("login/login");
+		/* 如果秘钥不匹配 */
+		} else {
+			$data = $_POST;
+			$result = $this->proj->storeCompany($data);
+			if ($result) {
+				echo $result;
+			} else {
+				echo "0";
+			}
+		}
+
+	}
+
+
 
 	/* 获取AccsssKey */
 	private function getAccessKey() {
@@ -232,9 +251,9 @@ class Project extends CI_Controller {
 
 
 	/* 传入资源名称，ajax请求使用 */
-	public function getImageUrlByKey() {
+	public function getImageUrlByKey($key) {
 		
-		$key = $_POST['key'];
+		//$key = $_POST['key'];
 		/* 从七牛云存储获取URL */
 		require_once(dirname(__FILE__)."/../../qiniu/rs.php");
 		$bucket = "designpartners";

@@ -20,6 +20,16 @@ function nameValidate(value) {
 	}      
 }
 
+/* 检查输入日期是否合法 */
+function dateValidate(value) {  
+	var containSpecial = RegExp(/[(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\')(\")(\,)(\.)(\<)(\>)(\?)(\)]+/);      
+	if (!containSpecial.test(value)&&value.length>=2) {
+		return true;
+	} else {
+		return false;
+	}      
+}
+
 /* 检查输入密码是否合法 */
 function passwordValidate(value) {  
 	var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);      
@@ -75,6 +85,23 @@ function checkBoxValidate(groups) {
 	});
 	/* 数组形式返回选中的元素 */
 	if (arr.length != 0) {
+		return arr;
+	} else {
+		return false;
+	}
+}
+
+
+/* 检查复选框的合法性 */
+function checkSingleBoxValidate(groups) {
+	var arr = new Array();
+	$.each(groups, function(index, content) {
+		if (content.checked) {
+			arr.push(content.value);
+		}
+	});
+	/* 数组形式返回选中的元素 */
+	if (arr.length == 1) {
 		return arr;
 	} else {
 		return false;
@@ -152,6 +179,19 @@ function getStoreBaseURL(){
 function getPublishDetailsURL(){
 	return getSiteURL() + '/project/publishDetails';
 }
+/* 储存详细信息 */
 function getStoreDetailsURL(){
 	return getSiteURL() + '/project/storeDetails';
+}
+/* 提交公司信息 */
+function getPublishCompanyURL(){
+	return getSiteURL() + '/project/publishCompany';
+}
+/* 储存详细信息 */
+function getStoreCompanyURL(){
+	return getSiteURL() + '/project/storeCompany';
+}
+/* 获取项目详情地址 */
+function getProjDetailsURL(){
+	return getSiteURL() + '/project/details';
 }

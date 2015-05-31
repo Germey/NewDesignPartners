@@ -27,14 +27,25 @@
 				</div>
 				<div class="item time">
 					<div class="title">项目时间计划*</div>
-					<div class="content">
-						<input type="text" class="form-control text" placeholder="项目时间计划" name="proj_time" id="proj_time">
+					<div class="content row">
+						<div id="date-start" class="col-sm-6 input-append date ">
+					      	<input class="form-control" type="text" id="start-time" name="start-time" placeholder="开始时间"></input>
+					      	<span class="add-on">
+					        	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+					      	</span>
+					    </div>
+					    <div id="date-end" class="col-sm-6 input-append date ">
+					      	<input class="form-control" type="text" id="end-time" name="end-time" placeholder="结束时间"></input>
+					      	<span class="add-on">
+					        	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+					      	</span>
+					    </div>
 					</div>
 				</div>
 				<div class="item budget">
 					<div class="title">项目预算*</div>
 					<div class="content">
-						<ul>
+						<ul class="list-unstyled">
 							<li><input type="checkbox" value="1">＜10,000元</li>
 							<li><input type="checkbox" value="2">10,000-30,000元</li>
 							<li><input type="checkbox" value="3">30,000-50,000元</li>
@@ -62,8 +73,7 @@
 			<!-- 侧栏结束 -->
 		</div>
 		<div class="conserve">
-			<input type="button" class="btn btn-primary" value="上一步">
-			<input type="button" class="btn btn-primary" value="下一步">
+			<input type="button" class="btn btn-primary" id="next-step" value="下一步">
 		</div>
 	</div>
 </div>

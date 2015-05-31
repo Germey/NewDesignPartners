@@ -20,9 +20,16 @@ ul {
 }
 body {
 	font-family:"Microsoft Yahei";
+	padding: 0 !important;
+	margin:0 !important;
 }
 form {
 	width: 100%;
+}
+.modal {
+  width: 100%;
+  background: none;
+  margin-left: 0;
 }
 .form-item {
 	margin: 10px 0;
@@ -403,6 +410,10 @@ form {
 	text-align: center;
 	border-bottom: 1px solid #EEE;
 }
+#proj-details .right .company_logo {
+	width: 100px;
+	height: 100px;
+}
 #proj-details .joined-designer .title {
 	text-align: center;
 	margin: 20px;
@@ -625,6 +636,18 @@ form {
 #publish-details input[type="button"] {
 	width: 150px;
 	height: 40px;
+}
+#publish-details .date input{
+	height: 32px;
+	width: 80%;
+	max-width: 200px;
+}
+#publish-details .date .add-on{
+	height: 32px;
+}
+#publish-details .left li input[type="checkbox"] {
+	margin-top: 5px;
+	margin-right: 5px;
 }
 
 /* 发布项目公司内容 */

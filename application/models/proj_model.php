@@ -110,14 +110,36 @@
 			$details = $data['proj_detail'];
 			$des_need = $data['des_need'];
 			$res_need = $data['res_need'];
-			$proj_time = $data['proj_time'];
+			$start_time = $data['start_time'];
+			$end_time = $data['end_time'];
 			$proj_id = $data['proj_id'];
-			$sql = "update project set details = '$details',des_need = '$des_need',res_need = '$res_need',start_date = '$proj_time' where id = $proj_id";
+			$budget = $data['budget'];
+			$sql = "update project set details = '$details',des_need = '$des_need',res_need = '$res_need',start_date = '$start_time',end_date = '$end_time',fin_need = $budget where id = $proj_id";
+			$result = $this->db->query($sql);
+			if ($result) {
+				return $proj_id;
+			} else {
+				return false;
+			}
+			
+		}
+
+
+		/* 储存项目公司详细 */
+		public function storeCompany($data) {
+			
+			$company_name = $data['company_name'];
+			$company_location = $data['company_location'];
+			$charge_person = $data['charge_person'];
+			$charge_phone = $data['charge_phone'];
+			$charge_email = $data['charge_email'];
+			$company_logo = $data['company_logo'];
+			$proj_id = $data['proj_id'];
+			$sql = "update project set company_name = '$company_name',company_location = '$company_location',charge_person = '$charge_person',charge_phone = '$charge_phone',charge_email = '$charge_email',company_logo = '$company_logo',valid = 1 where id = $proj_id";
 			echo $sql;
 			$result = $this->db->query($sql);
 			if ($result) {
-				$id = $this->db->insert_id();
-				return $id;
+				return $proj_id;
 			} else {
 				return false;
 			}

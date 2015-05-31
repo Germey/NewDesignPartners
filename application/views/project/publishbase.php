@@ -80,7 +80,6 @@
 			<!-- 侧栏结束 -->
 		</div>
 		<div class="conserve">
-			<input type="button" class="btn" value="上一步" disabled="disabled">
 			<input type="button" class="btn btn-primary" id="next-step" value="下一步">
 		</div>
 	</div>
