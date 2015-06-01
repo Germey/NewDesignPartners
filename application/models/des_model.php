@@ -96,11 +96,29 @@
 		}
 
 		/* 获得特定的设计师 */
-		public function getLimitDesigners($start,$pageNum){
+		public function getLimitDesigners($start, $pageNum) {
 			$sql = "select * from designer limit ".$start.",".$pageNum;
 			$result = $this->db->query($sql);
 			return $result->result_array();
 		}
 
+
+		/* 关注项目 */
+		public function followProj($uid, $projId) {
+
+			$sql = "insert into proj_designer(project_id,designer_id) values ($projId,$uid)";
+			$result = $this->db->query($sql);
+			return $result;
+
+		}
+
+		/* 取消关注项目 */
+		public function unFollowProj($uid, $projId) {
+
+			$sql = "delete from proj_designer where project_id = $projId and designer_id = $uid";
+			$result = $this->db->query($sql);
+			return $result;
+
+		}
 
 	}

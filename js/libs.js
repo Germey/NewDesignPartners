@@ -133,7 +133,13 @@ function formInputChange(success, input) {
 	}
 }
 
-
+/* 通过URL获取项目id */
+function getProjId() {
+	var url = window.location.href;
+	urls = url.split('/');
+	id = urls[urls.length-1];
+	return id;
+}
 
 /* 获得错误提示的图片 */
 function getWrongPic() {
@@ -194,4 +200,8 @@ function getStoreCompanyURL(){
 /* 获取项目详情地址 */
 function getProjDetailsURL(){
 	return getSiteURL() + '/project/details';
+}
+/* 获取项目详情地址 */
+function getFollowProjURL(){
+	return getSiteURL() + '/designer/followProjOrNot';
 }

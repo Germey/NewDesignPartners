@@ -62,6 +62,7 @@
     <script src="<?php echo base_url()?>js/jquery.form.js"></script>
     <script src="<?php echo base_url()?>js/libs.js"></script>
     <script src="<?php echo base_url()?>js/main.js"></script>
+    <script src="<?php echo base_url()?>js/project.js"></script>
     <script src="<?php echo base_url()?>js/designer.js"></script>
     <script type="text/javascript">
     /* 返回站点路径 */

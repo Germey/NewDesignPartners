@@ -5,6 +5,7 @@
 		<div class="content">
 			<div class="icon item"><img src="<?php echo $info['image'];?>"></div>
 			<div class="name item"><?php echo $info['name'];?></div>
+			<?php if ($info['id']==$_SESSION['id']) { ?><div class = "change-info"><a href="<?php echo site_url()?>/designer/changeInfo/<?php echo $_SESSION['id'];?>">修改信息</a></div><?php } ?>
 			<div class="intro item"><?php echo $info['brief'];?></div>
 		</div>
 	</div>

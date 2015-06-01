@@ -28,11 +28,11 @@
 					</div>
 					<div class="item">
 						<p>发布方</p>
-						<p>顺丰速运</p>
+						<p></p>
 					</div>
 					<div class="item">
-						<p>联系人:张先生</p>
-						<p>电话：18093823232</p>
+						<p>联系人:暂无</p>
+						<p>电话：暂无</p>
 					</div>
 				</div>
 				<div class="joined-designer">

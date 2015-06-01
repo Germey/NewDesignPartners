@@ -251,9 +251,9 @@ class Project extends CI_Controller {
 
 
 	/* 传入资源名称，ajax请求使用 */
-	public function getImageUrlByKey($key) {
+	public function getImageUrlByKey() {
 		
-		//$key = $_POST['key'];
+		$key = $_POST['key'];
 		/* 从七牛云存储获取URL */
 		require_once(dirname(__FILE__)."/../../qiniu/rs.php");
 		$bucket = "designpartners";

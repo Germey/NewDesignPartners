@@ -14,7 +14,7 @@ class Designer extends CI_Controller {
 
 		parent::__construct();
 		$this->load->model("des_model","des");
-
+		$this->load->model("proj_model","proj");
 	}
 
 	/* 读取设计师列表 */
@@ -75,16 +75,41 @@ class Designer extends CI_Controller {
 		
 	}
 
+	/* 关注项目　*/
+	public function followProjOrNot() {
+
+		$projId = $_POST['proj_id'];
+		if (!isset($_SESSION['id'])) {
+			echo "-1";
+		} else {
+			$followed = $this->proj->isJoined($projId,$_SESSION['id']);
+			if(!$followed) {
+				$result = $this->des->followProj($_SESSION['id'], $projId);
+				if ($result) {
+					echo "1";
+				} else {
+					echo "0";
+				}
+			} else {
+				$result = $this->des->unFollowProj($_SESSION['id'], $projId);
+				if ($result) {
+					echo "3";
+				} else {
+					echo "2";
+				}
+			}
+			
+		}
+
+	}
+
+
 	/* 获得已经加入的项目 */
 	public function getJoinedProjects() {
 
 		$id = $_POST['id'];
 		$id = htmlspecialchars($id, ENT_QUOTES);
 		$result = $this->des->getJoinedProjectsById($id);
-		/* 图片链接变为七牛有效链接 */
-		for($i=0;$i<count($result);$i++){
-			$result[$i]['image'] = $this->getUrlByKey($result[$i]['image']);
-		}
 		echo json_encode($result);
 
 	}
@@ -115,6 +140,27 @@ class Designer extends CI_Controller {
 		$data['paginations'] = $this->pagination->create_links();
 		$this->load->view("designer/designer",$data);
 
+	}
+
+	/* 修改信息 */
+	public function changeInfo($id = 0){
+	
+		$this->loadHeader();
+		/* 没有登录 */
+		if (!(isset($_SESSION['id']))) {
+			$this->load->view('login/login');
+		/* 用户不对应 */
+		} else if ($_SESSION['id'] != $id) {
+			$data['content'] = "您无权修改其他人的信息";
+			$this->load->view('designer/message',$data);
+		}else{
+			$info = $this->des->getInfoById($id);
+			$info['image'] = $this->getUrlByKey($info['image']);
+			$data['info'] = $info;
+			$this->load->view("designer/changeinfo",$data);
+		}
+		$this->loadFooter();
+		
 	}
 
 	/* 获取AccsssKey */

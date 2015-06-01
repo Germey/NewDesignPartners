@@ -376,7 +376,8 @@ form {
 #proj-details {
 	background-color: #F8F8F8;
 }
-#proj-details .left {
+
+#proj-details .main {
 	padding: 20px;
 	border: 1px solid #EEE;
 	background-color: #FFF;
@@ -389,6 +390,7 @@ form {
 #proj-details .brief img {
 	width: 100%;
 }
+
 #proj-details .left .item {
 	border-top: 1px solid #EEE;
 }
@@ -400,10 +402,8 @@ form {
 	font-size: 15px;
 	margin: 20px 0;
 }
-#proj-details .right {
-	border: 1px solid #EEE;
-	background-color: #FFF;
-	margin-bottom: 30px;
+#proj-details .left .nav {
+	padding: 10px;
 }
 #proj-details .right .item {
 	padding: 20px;
@@ -441,6 +441,23 @@ form {
 #proj-details .joined-designer .single img {
 	width: 100px;
 	height: 100px;
+}
+#proj-details .right .follow {
+	overflow: hidden;
+}
+#proj-details .right .follow-project {
+	float: right;
+	margin: 10px;
+	width: 60px;
+	cursor: pointer;
+}
+@media (min-width: 992px) {
+	#proj-details .right {
+		padding-left: 5px;
+	}
+	#proj-details .left {
+		padding-right: 5px;
+	}
 }
 /* 训练营列表 */
 #workshops .single {
@@ -757,6 +774,9 @@ form {
 	text-align: center;
 	color: #FEFEFE;
 }
+#designer-details .tab-pane .row {
+	padding-top: 50px;
+}
 #designer-details .content .icon>img {
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
@@ -765,6 +785,14 @@ form {
 }
 #designer-details .content .name {
 	font-size: 18px;
+}
+#designer-details .content .change-info {
+	font-size: 12px;
+	margin: -20px 0;
+}
+#designer-details .content .change-info a { 
+	color: #FFF;
+	text-decoration: none;
 }
 #designer-details .content .intro {
 	font-size: 15px;
@@ -816,6 +844,7 @@ form {
 }
 #tab-my-project .row>div {
 	padding: 20px;
+	padding-top: 50px;
 }
 #tab-my-project img {
 	width: 230px;

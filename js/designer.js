@@ -25,7 +25,7 @@ $(function(){
 			var result = JSON.parse(data);
 			$.each(result, function(index, content) {
 				var item = $("<div></div>").addClass("col-md-3 col-sm-6").appendTo(target);
-				$('<div class="img-wrap"><img src="'+content.image+'"></div>').appendTo(item);
+				$('<div class="img-wrap"><a href="'+ getSiteURL() +'/project/details/'+content.id+'"><img src="'+content.image+'"></a></div>').appendTo(item);
 				$("<div>").text(content.name).addClass("name").appendTo(item);
 			});
 		});
@@ -36,4 +36,7 @@ $(function(){
 	$("#designer-details .nav-tabs a[href='#tab-my-details']").click(function(){
 		
 	});
+
+	
+
 });

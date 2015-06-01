@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>设计合伙人</title>
+    <title>设计合伙人 - 新锐设计师互联网平台</title>
     <link href="<?php echo base_url();?>css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet" type="text/css">
