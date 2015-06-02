@@ -489,11 +489,12 @@ form {
 	text-align: right;
 }
 
-/* 项目详情 */
+/* 训练营详情 */
 #wkshop-details {
 	background-color: #F8F8F8;
 }
-#wkshop-details .left {
+
+#wkshop-details .main {
 	padding: 20px;
 	border: 1px solid #EEE;
 	background-color: #FFF;
@@ -506,6 +507,7 @@ form {
 #wkshop-details .brief img {
 	width: 100%;
 }
+
 #wkshop-details .left .item {
 	border-top: 1px solid #EEE;
 }
@@ -517,15 +519,18 @@ form {
 	font-size: 15px;
 	margin: 20px 0;
 }
-#wkshop-details .right {
-	border: 1px solid #EEE;
-	background-color: #FFF;
-	margin-bottom: 30px;
+#wkshop-details .left .nav {
+	padding: 10px;
 }
 #wkshop-details .right .item {
 	padding: 20px;
 	text-align: center;
 	border-bottom: 1px solid #EEE;
+}
+#wkshop-details .right .company_logo {
+	width: 50%;
+	max-width: 150px;
+	margin-top: 10px;
 }
 #wkshop-details .joined-designer .title {
 	text-align: center;
@@ -554,6 +559,23 @@ form {
 #wkshop-details .joined-designer .single img {
 	width: 100px;
 	height: 100px;
+}
+#wkshop-details .right .follow {
+	overflow: hidden;
+}
+#wkshop-details .right .follow-workshop {
+	float: right;
+	margin: 10px;
+	width: 60px;
+	cursor: pointer;
+}
+@media (min-width: 992px) {
+	#wkshop-details .right {
+		padding-left: 5px;
+	}
+	#wkshop-details .left {
+		padding-right: 5px;
+	}
 }
 
 /* 发布项目基本内容 */

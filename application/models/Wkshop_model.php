@@ -19,7 +19,7 @@
 		/* 获取特定的项目 */
 		public function getLimitWorkshops($start,$pageNum) {
 
-			$sql = "select * from workshop limit ".$start.",".$pageNum;
+			$sql = "select * from workshop where valid = 1 limit ".$start.",".$pageNum;
 			$result = $this->db->query($sql);
 			return $result->result_array();
 
