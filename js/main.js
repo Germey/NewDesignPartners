@@ -163,7 +163,7 @@ $(function(){
 
 	/* 日期选择器 */
 	$('#date-start').datetimepicker({
-		format: 'yyyy/MM/dd hh:mm',
+		format: 'yyyy/MM/dd',
 		language: 'en',
 		pickDate: true,
 		pickTime: true,
@@ -173,7 +173,7 @@ $(function(){
 		inputMask: true
 	});
 	$('#date-end').datetimepicker({
-		format: 'yyyy/MM/dd hh:mm',
+		format: 'yyyy/MM/dd',
 		language: 'en',
 		pickDate: true,
 		pickTime: true,

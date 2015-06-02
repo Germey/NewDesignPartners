@@ -1,9 +1,10 @@
 <?php
 /*
-name:verify_model.php
-author:崔庆才
-date:2015/4/28
+	类：验证码类
+	作者：崔庆才
+	日期：2015/4/28
 */
+	
 	class Code {
 		//验证码的宽度
 		private $width;

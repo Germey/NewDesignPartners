@@ -9,10 +9,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
 
+	private $qiniu;
+
 	/* 构造方法，加载模型 */
 	public function __construct() {
 
 		parent::__construct();
+		require_once(APPPATH."third_party/qiniu.class.php");
+		$this->qiniu = new Qiniu();
 		$this->load->model("proj_model","proj");
 		$this->load->model("wkshop_model","wkshop");
 
@@ -54,6 +58,9 @@ class Main extends CI_Controller {
 	private function loadProjOverview()	{
 
 		$result = $this->proj->loadProjOverview();
+		for($i=0;$i<count($result);$i++){
+			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
+		}
 		$var['projects'] = $result;
 		$this->load->view("main/project",$var);
 
@@ -64,46 +71,13 @@ class Main extends CI_Controller {
 	
 		$result = $this->wkshop->getLimitWorkShops(0,3);
 		for($i=0;$i<count($result);$i++){
-			$result[$i]['image'] = $this->getUrlByKey($result[$i]['image']);
+			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
 		}
 		$var['workshops'] = $result;
 		$this->load->view("main/workshop",$var);
 		
 	}
 
-
-	/* 获取AccsssKey */
-	private function getAccessKey() {
-
-		$accessKey = 'IOImn35KC5pRX7Ov3scxbYkvNk6oIxB7zWsBRp16';
-		return $accessKey;
-
-		
-	}
-	
-	/* 获取secretKey */
-	private function getSecretKey() {
-
-		$secretKey = 's29vc9tlCvs23wRh7QScYTuzCDmIbUSi4EroKj1z';
-		return $secretKey;
-
-	}
-	
-	/* 传入资源名称，返回资源URL */
-	private function getUrlByKey($key,$bucket = "designpartners") {
-	
-		/* 从七牛云存储获取URL */
-		require_once(dirname(__FILE__)."/../../qiniu/rs.php");
-		$domain = $bucket.".qiniudn.com";
-		$accessKey = $this->getAccessKey();
-		$secretKey = $this->getSecretKey();
-		Qiniu_SetKeys($accessKey, $secretKey);  
-		$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
-		$getPolicy = new Qiniu_RS_GetPolicy();
-		$privateUrl = $getPolicy->MakeRequest($baseUrl, null);
-		return $privateUrl;
-		
-	}
 
 
 }

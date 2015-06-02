@@ -9,7 +9,7 @@
 		/* 获得项目概览 四个项目 */
 		public function loadProjOverview() {
 
-			$sql = "select * from project where valid = 1 limit 0,4 ";
+			$sql = "select * from project where valid = 1 and state = 0 limit 0,4 ";
 			$result = $this->db->query($sql);
 			return $result->result_array();
 			

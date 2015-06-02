@@ -139,19 +139,20 @@ form {
 }
 .project-single .introduction {
 	text-align: left;
-	padding: 0 20px 20px 20px;
+	padding: 0px 5px 5px 0px;
 	max-width: 280px;
-	margin: auto;
+}
+.project-single .name {
+	margin: 10px 10px 10px 0px;
 }
 .project-single .name a {
-	font-size: 20px;
+	font-size: 16px;
 	color: black;
 	text-decoration: none;
-	margin: 0px 10px 10px 0px;
 }
 .project-single .recruit {
 	font-size: 14px;
-	width: 80px;
+	width: 100%;
 	margin-bottom: 5px;
 	line-height: 23px;
 }
@@ -164,10 +165,10 @@ form {
 }
 .project-single .pre-img {
 	margin: auto;
-	width: 280px;
+	width: 100%;
 }
 .project-single img {
-	width:280px;
+	width:100%;
 	text-align: center;
 }
 /* 训练营概览 */
@@ -411,8 +412,9 @@ form {
 	border-bottom: 1px solid #EEE;
 }
 #proj-details .right .company_logo {
-	width: 100px;
-	height: 100px;
+	width: 50%;
+	max-width: 150px;
+	margin-top: 10px;
 }
 #proj-details .joined-designer .title {
 	text-align: center;

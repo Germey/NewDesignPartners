@@ -12,7 +12,7 @@
 				</div>
 				<div class="main">
 					<div class="brief">
-						<div><img class="img" src="<?php echo $project['image'];?>"></div>
+						<div><img class="img" src="<?php echo $project['large_image'];?>"></div>
 						<div class="content"><?php echo $project['brief']; ?></div>
 					</div>	
 					<div class="details">
