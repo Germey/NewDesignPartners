@@ -6,17 +6,18 @@
 */
 	class Wkshop_model extends CI_Model {
 		
-		/* 获取所有的项目信息 */
+		
+		/* 获取所有的训练营信息 */
 		public function getAllWorkshops() {
 
-			$sql = "select * from workshop";
+			$sql = "select * from workshop where valid  = 1";
 			$result = $this->db->query($sql);
 			return $result->result_array();
 
 		}
 
 
-		/* 获取特定的项目 */
+		/* 获取特定的训练营 */
 		public function getLimitWorkshops($start,$pageNum) {
 
 			$sql = "select * from workshop where valid = 1 limit ".$start.",".$pageNum;
@@ -25,7 +26,7 @@
 
 		}
 
-		/* 判断这个项目是否存在 */
+		/* 判断这个训练营是否存在 */
 		public function wkshopExists($id) {
 
 			$sql = "select * from workshop where id = $id";

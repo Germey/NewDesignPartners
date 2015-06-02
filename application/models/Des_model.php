@@ -6,6 +6,7 @@
 */
 	class Des_model extends CI_Model{
 
+
 		/* 根据邮件获取内容 */
 		public function getByEmail($email){
 
@@ -14,6 +15,7 @@
 			return $result->result_array();
 
 		}
+
 
 		/* 根据手机号获取内容 */
 		public function getByPhone($phone){
@@ -24,6 +26,7 @@
 
 		}
 
+
 		/* 注册插入信息 */
 		public function register($data){
 
@@ -32,6 +35,7 @@
 			return $result;
 
 		}
+
 
 		/* 通过邮件来获取用户代号 */
 		public function getIdByEmail($email){
@@ -42,6 +46,7 @@
 			
 		}
 		
+
 		/* 检查邮箱是否存在 */
 		public function emailExists($email) {
 
@@ -54,6 +59,7 @@
 			}
 
 		}
+
 
 		/* 检查手机是否存在 */
 		public function phoneExists($phone) {
@@ -68,6 +74,7 @@
 			
 		}
 
+
 		/* 通过用户ID获得个人信息 */
 		public function getInfoById($id) {
 
@@ -81,6 +88,7 @@
 			
 		}
 
+
 		/* 通过用户id获取用户已经加入的项目 */
 		public function getJoinedProjectsById($id) {
 			$sql = "select * from proj_designer a,project b where a.project_id = b.id and a.designer_id = ".$id;
@@ -88,12 +96,14 @@
 			return $result;
 		}
 
+
 		/* 获得所有的设计师 */
 		public function getAllDesigners(){
 			$sql = "select * from designer";
 			$result = $this->db->query($sql);
 			return $result->result_array();
 		}
+
 
 		/* 获得特定的设计师 */
 		public function getLimitDesigners($start, $pageNum) {
@@ -112,6 +122,7 @@
 
 		}
 
+
 		/* 取消关注项目 */
 		public function unFollowProj($uid, $projId) {
 
@@ -119,6 +130,15 @@
 			$result = $this->db->query($sql);
 			return $result;
 
+		}
+
+		/* 获得本周推荐设计师 */
+		public function getThisWeekDesigners(){
+			$sql = "select * from designer limit ?,?";
+			$data[0] = 0;
+			$data[1] = 4;
+			$result = $this->db->query($sql,$data);
+			return $result->result_array();
 		}
 
 	}

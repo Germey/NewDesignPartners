@@ -19,7 +19,8 @@ class Main extends CI_Controller {
 		$this->qiniu = new Qiniu();
 		$this->load->model("proj_model","proj");
 		$this->load->model("wkshop_model","wkshop");
-
+		$this->load->model("des_model","des");
+		$this->load->model("sample_model","sam");
 	}
 
 	/* 入口 */
@@ -29,6 +30,8 @@ class Main extends CI_Controller {
 		$this->loadCarousel();
 		$this->loadProjOverview();
 		$this->loadWkshopOverview();
+		$this->loadDesOverview();
+		$this->loadSampleOverview();
 		$this->loadFooter();
 
 	}
@@ -79,5 +82,28 @@ class Main extends CI_Controller {
 	}
 
 
+	/* 加载本周推荐设计师 */
+	private function loadDesOverview(){
 
+		$result = $this->des->getThisWeekDesigners();
+		for($i=0;$i<count($result);$i++){
+			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
+		}
+		$data['designers'] = $result;
+		$this->load->view("main/designer",$data);
+		
+	}
+
+
+	/* 加载工作坊训练营预览 */
+	private function loadSampleOverview(){
+	
+		$result = $this->sam->getLimitSamples(0,3);
+		for($i=0;$i<count($result);$i++){
+			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
+		}
+		$var['samples'] = $result;
+		$this->load->view("main/sample",$var);
+		
+	}
 }

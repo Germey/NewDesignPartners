@@ -171,6 +171,7 @@ form {
 	width:100%;
 	text-align: center;
 }
+
 /* 训练营概览 */
 #wkshopOverview{
 	background-color: #F8F8F8;
@@ -189,18 +190,19 @@ form {
 .workshop-single a {
 	color: black;
 }
+.workshop-single .img {
+	width: 100%;
+}
+.workshop-single .img img {
+	width: 100%;
+	margin-bottom: 10px;
+}
 @media (min-width: 992px) {
 	.workshop-single {
-		width: 300px;
+		max-width: 300px;
 		margin: auto;
 	}
-	.workshop-single .img {
-		width: 300px;
-		height: 270px;
-	}
 	.workshop-single .img img {
-		width: 288px;
-		height: 258px;
 		float: left;
 		position: relative;
 		border: 1px solid rgba(236, 236, 236, 1);
@@ -212,16 +214,10 @@ form {
 }
 @media (max-width: 992px) and (min-width: 768px) {
 	.workshop-single {
-		width: 240px;
+		max-width: 240px;
 		margin: auto;
 	}
-	.workshop-single .img {
-		width: 240px;
-		height: 220px;
-	}
 	.workshop-single .img img {
-		width: 218px;
-		height: 198px;
 		float: left;
 		position: relative;
 		border: 1px solid rgba(236, 236, 236, 1);
@@ -233,16 +229,10 @@ form {
 }
 @media (max-width: 768px) and (min-width: 524px) {
 	.workshop-single {
-		width: 190px;
+		max-width: 190px;
 		margin: auto;
 	}
-	.workshop-single .img {
-		width: 190px;
-		height: 170px;
-	}
 	.workshop-single .img img {
-		width: 170px;
-		height: 160px;
 		float: left;
 		position: relative;
 		border: 1px solid rgba(236, 236, 236, 1);
@@ -254,16 +244,10 @@ form {
 }
 @media (max-width: 523px) {
 	.workshop-single {
-		width: 280px;
+		max-width: 280px;
 		margin: auto;
 	}
-	.workshop-single .img {
-		width: 280px;
-		height: 250px;
-	}
 	.workshop-single .img img {
-		width: 258px;
-		height: 238px;
 		float: left;
 		position: relative;
 		border: 1px solid rgba(236, 236, 236, 1);
@@ -273,6 +257,117 @@ form {
 		margin-top: 22px;
 	}
 }
+
+/* 成功实例概览 */
+#sampleOverview{
+	background-color: #F8F8F8;
+	padding: 30px 0;
+}
+.sample-single {
+	padding-bottom: 30px;
+}
+.sample-single .name {
+	text-align: center;
+	color: black;
+}
+.sample-single .name a{
+	text-decoration: none;
+}
+.sample-single a {
+	color: black;
+}
+.sample-single .img {
+	width: 100%;
+}
+.sample-single .img img {
+	width: 100%;
+	margin-bottom: 10px;
+}
+@media (min-width: 992px) {
+	.sample-single {
+		max-width: 300px;
+		margin: auto;
+	}
+	.sample-single .img img {
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.sample-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}
+@media (max-width: 992px) and (min-width: 768px) {
+	.sample-single {
+		max-width: 240px;
+		margin: auto;
+	}
+	.sample-single .img img {
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.sample-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}
+@media (max-width: 768px) and (min-width: 524px) {
+	.sample-single {
+		max-width: 190px;
+		margin: auto;
+	}
+	.sample-single .img img {
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.sample-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}
+@media (max-width: 523px) {
+	.sample-single {
+		max-width: 280px;
+		margin: auto;
+	}
+	.sample-single .img img {
+		float: left;
+		position: relative;
+		border: 1px solid rgba(236, 236, 236, 1);
+	}
+	.sample-single .name {
+		font-size: 16px;
+		margin-top: 22px;
+	}
+}
+
+
+/* 本周推荐设计师 */
+#desOverview {
+	padding: 40px 0;
+}
+#desOverview .designer-single {
+	max-width: 260px;
+	text-align: center;
+	margin: auto;
+}
+#desOverview img {
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+}
+#desOverview .name {
+	margin: 20px 0;
+}
+#desOverview  a {
+	text-decoration: none;
+	color: #333;
+}
+
 
 /* 注册页面 */
 #register {
@@ -577,6 +672,70 @@ form {
 		padding-right: 5px;
 	}
 }
+
+
+/* 训练营详情 */
+#sample-details {
+	background-color: #F8F8F8;
+}
+
+#sample-details .main {
+	padding: 20px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	margin-bottom: 30px;
+}
+#sample-details .sample-title {
+	text-align: center;
+	margin: 40px 0;
+}
+#sample-details .brief img {
+	width: 100%;
+}
+
+#sample-details .left .item {
+	border-top: 1px solid #EEE;
+}
+#sample-details .left .content {
+	margin: 20px;
+	font-size: 14px;
+}
+#sample-details .left .title {
+	font-size: 15px;
+	margin: 20px 0;
+}
+#sample-details .left .nav {
+	padding: 10px;
+}
+#sample-details .right .item {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid #EEE;
+}
+#sample-details .right .company_logo {
+	width: 50%;
+	max-width: 150px;
+	margin-top: 10px;
+}
+#sample-details .right .follow {
+	overflow: hidden;
+}
+#sample-details .right .follow-sample {
+	float: right;
+	margin: 10px;
+	width: 60px;
+	cursor: pointer;
+}
+@media (min-width: 992px) {
+	#sample-details .right {
+		padding-left: 5px;
+	}
+	#sample-details .left {
+		padding-right: 5px;
+	}
+}
+
+
 
 /* 发布项目基本内容 */
 #publish-base {
@@ -889,7 +1048,7 @@ form {
 	padding: 50px 0;
 }
 #footer .block {
-	width:200px;
+	max-width:200px;
 	margin: auto;
 	text-align: center;
 }
