@@ -16,7 +16,7 @@
 						<div class="content"><?php echo $sample['brief']; ?></div>
 					</div>	
 					<div class="details">
-						
+						<?php echo $sample['details'];?>
 					</div>
 				</div>
 			</div>

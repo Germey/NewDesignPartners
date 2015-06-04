@@ -32,6 +32,8 @@ class Main extends CI_Controller {
 		$this->loadWkshopOverview();
 		$this->loadDesOverview();
 		$this->loadSampleOverview();
+		$this->loadPartners();
+		$this->loadBanner();
 		$this->loadFooter();
 
 	}
@@ -106,4 +108,19 @@ class Main extends CI_Controller {
 		$this->load->view("main/sample",$var);
 		
 	}
+
+	/* 加载合作伙伴 */
+	private function loadPartners() {
+
+		$this->load->view("main/partners");
+
+	}
+
+	/* 加载底部宣传页面 */
+	private function loadBanner() {
+
+		$this->load->view("main/banner");
+
+	}
+
 }

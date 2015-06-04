@@ -56,6 +56,9 @@ class Project extends CI_Controller {
 		$this->pagination->initialize($config);
 		$start = $id;
 		$result = $this->proj->getLimitProjects($start,$pagenum);
+		for($i=0;$i<count($result);$i++){
+			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
+		}
 		$data['projects'] = $result;
 		$data['paginations'] = $this->pagination->create_links();
 		$this->load->view("project/project",$data);
