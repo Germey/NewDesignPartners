@@ -434,6 +434,12 @@ form {
 #banner .content a {
 	color: #FFF;
 }
+@media (max-width: 566px) {
+	#banner img {
+		width: 100%;
+		height: 400px;
+	}
+}
 /* 注册页面 */
 #register {
 	padding: 50px 0;
