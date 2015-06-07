@@ -83,10 +83,10 @@
 			<!-- 侧栏 -->
 			<div class = "right col-md-4 col-xs-12">
 				<div class="follow">
-					<?php if (!$joined) { ?>
-					<p class="follow-workshop">+关注</p>
+					<?php if (!$attention) { ?>
+					<p class="follow-workshop" wkshop="<?php echo $workshop['id'];?>">+关注</p>
 					<?php } else { ?>
-					<p class="follow-workshop">取消关注</p>
+					<p class="follow-workshop" wkshop="<?php echo $workshop['id'];?>">取消关注</p>
 					<?php } ?>
 					<input type="hidden" value="<?php echo $workshop['id']?>" id="wkshop_id">
 				</div>
@@ -94,7 +94,7 @@
 					<div class="introduction">
 						<div class="item join">
 							<?php if($workshop['state'] == 1){?>
-								<input type="button" class="btn" value="已结束">
+								<input type="button" class="btn" value="已结束" disabled="disabled">
 							<?php } else if($joined) { ?>
 								<input type="button" class="btn btn-primary" value="已参与" name="joined">
 							<?php } else { ?>

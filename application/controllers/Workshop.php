@@ -68,11 +68,17 @@ class Workshop extends CI_Controller {
 			if(isset($_SESSION['id'])){
 				$joined = $this->wkshop->isJoined($id,$_SESSION['id']);
 			}
+			/* 是否已经关注 */
+			$attention = 0;
+			if(isset($_SESSION['id'])){
+				$attention = $this->wkshop->isAttention($id,$_SESSION['id']);
+			}
 			$result['image'] = $this->qiniu->getUrlByKey($result['image']);
 			$result['large_image'] = $this->qiniu->getUrlByKey($result['large_image']);
 			$data['workshop'] = $result;
 			$data['designers'] = $designers;
 			$data['joined'] = $joined;
+			$data['attention'] = $attention;
 			$this->load->view("workshop/details", $data);
 		}
 		$this->loadFooter();
@@ -100,6 +106,12 @@ class Workshop extends CI_Controller {
 		for($i=0;$i<count($result);$i++){
 			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
 			$result[$i]['large_image'] = $this->qiniu->getUrlByKey($result[$i]['large_image']);
+			$result[$i]['day_des'] = $this->format->desTwoDays(date("Y-m-d",time()), $result[$i]['end_date']);
+			$joined = 0;
+			if (isset($_SESSION['id'])) {
+				$joined = $this->wkshop->isJoined($result[$i]['id'],$_SESSION['id']);
+			}
+			$result[$i]['joined'] = $joined;
 		}
 		$data['workshops'] = $result;
 		$data['paginations'] = $this->pagination->create_links();

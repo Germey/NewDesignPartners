@@ -112,17 +112,6 @@
 			return $result->result_array();
 		}
 
-
-		/* 关注项目 */
-		public function followProj($uid, $projId) {
-
-			$sql = "insert into proj_attention(project_id,designer_id) values ($projId,$uid)";
-			$result = $this->db->query($sql);
-			return $result;
-
-		}
-
-
 		/* 加入项目 */
 		public function joinProj($uid, $projId) {
 
@@ -132,10 +121,46 @@
 
 		}
 
+		/* 加入训练营 */
+		public function joinWkshop($uid, $wkshopId) {
+
+			$sql = "insert into workshop_designer(workshop_id,designer_id) values ($wkshopId,$uid)";
+			$result = $this->db->query($sql);
+			return $result;
+
+		}
+
+		/* 关注项目 */
+		public function addAttentionProj($uid, $projId) {
+
+			$sql = "insert into proj_attention(project_id,designer_id) values ($projId,$uid)";
+			$result = $this->db->query($sql);
+			return $result;
+
+		}
+
 		/* 取消关注项目 */
-		public function unFollowProj($uid, $projId) {
+		public function removeAttentionProj($uid, $projId) {
 
 			$sql = "delete from proj_attention where project_id = $projId and designer_id = $uid";
+			$result = $this->db->query($sql);
+			return $result;
+
+		}
+
+		/* 关注训练营 */
+		public function addAttentionWkshop($uid, $wkshopId) {
+
+			$sql = "insert into workshop_attention(workshop_id,designer_id) values ($wkshopId,$uid)";
+			$result = $this->db->query($sql);
+			return $result;
+
+		}
+
+		/* 取消关注项目 */
+		public function removeAttentionWkshop($uid, $wkshopId) {
+
+			$sql = "delete from workshop_attention where workshop_id = $wkshopId and designer_id = $uid";
 			$result = $this->db->query($sql);
 			return $result;
 

@@ -220,14 +220,33 @@ form {
 }
 .workshop-single .img {
 	width: 100%;
+	position: relative;
+	overflow: hidden;
 }
 .workshop-single .img img {
 	width: 100%;
-	margin-bottom: 10px;
+}
+.workshop-single .img .join {
+	position: absolute;
+	bottom: 0;
+	height: 40px;
+	background-color: rgba(215, 215, 215, 0.5);
+	width: 100%;
+	overflow: hidden;
+}
+.workshop-single .img .join input {
+	font-size: 12px;
+	width: 70px;
+	height: 22px;
+	float: right;
+	line-height: 12px;
+	border: none;
+	margin-top: 8px;
+	margin-right: 10px;
 }
 @media (min-width: 992px) {
 	.workshop-single {
-		max-width: 300px;
+		max-width: 260px;
 		margin: auto;
 	}
 	.workshop-single .img img {
@@ -242,7 +261,7 @@ form {
 }
 @media (max-width: 992px) and (min-width: 768px) {
 	.workshop-single {
-		max-width: 240px;
+		max-width: 230px;
 		margin: auto;
 	}
 	.workshop-single .img img {
@@ -566,11 +585,6 @@ form {
 #projects .add input {
 	float: right;
 	width: 200px;
-	background-color: rgb(58, 161, 236);
-	border: rgb(27, 128, 213);
-}
-#projects .add input:hover {
-	background-color: rgb(66, 120, 237);
 }
 #projects .follow-project {
   float: right;
@@ -683,10 +697,13 @@ form {
 		padding-right: 5px;
 	}
 }
-/* 训练营列表 */
+/* 项目列表页面 */
+#workshops {
+	background: #fbfbfb;
+}
 #workshops .single {
 	padding: 50px;
-	border: 1px solid #EEE;
+	border-bottom: 1px solid #EEE;
 	border-top: none;
 }
 #workshops .intro-img{
@@ -694,18 +711,34 @@ form {
 	margin: auto;
 }
 #workshops .intro-img img {
-	width: 230px;
-	height: 150px;
+	width: 260px;
+	height: 180px;
 }
 #workshops .single a {
 	color: #333;
+	text-decoration: none;
 }
 #workshops .single .title {
 	font-size: 20px;
-
+}
+#workshops .add input {
+	float: right;
+	width: 200px;
+}
+#workshops .follow-project {
+  float: right;
+  width: 60px;
+  cursor: pointer;
+  font-size: 14px;
 }
 #workshops .single .item {
 	margin: 5px 0;
+}
+#workshops .single .brief {
+	margin: 20px 0;
+}
+#workshops .single .date span {
+	font-size: 24px;
 }
 #workshops .pagi {
 	text-align: right;
@@ -753,6 +786,10 @@ form {
 	width: 50%;
 	max-width: 150px;
 	margin-top: 10px;
+}
+#wkshop-details .right input[type="button"] {
+	width: 200px;
+	margin: 20px 0;
 }
 #wkshop-details .joined-designer .title {
 	text-align: center;

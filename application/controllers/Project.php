@@ -116,9 +116,15 @@ class Project extends CI_Controller {
 			if(isset($_SESSION['id'])){
 				$joined = $this->proj->isJoined($id,$_SESSION['id']);
 			}
+			/* 是否已经关注 */
+			$attention = 0;
+			if(isset($_SESSION['id'])){
+				$attention = $this->proj->isAttention($id,$_SESSION['id']);
+			}
 			$data['project'] = $result;
 			$data['designers'] = $designers;
 			$data['joined'] = $joined;
+			$data['attention'] = $attention;
 			$this->load->view("project/details", $data);
 		}
 		$this->loadFooter();

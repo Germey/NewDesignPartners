@@ -76,4 +76,23 @@
 			}
 			return $join;
 		}
+
+
+		/* 传入设计师id和训练营id判断设计师是否关注 */
+		public function isAttention($wkshopId,$desId) {
+			$attention = 0;
+			$sql = "select * from workshop_attention where workshop_id = ? and designer_id = ?";
+			$datas[0] = $wkshopId;
+			$datas[1] = $desId;
+			$r = $this->db->query($sql,$datas)->result_array();
+			$result = 0;
+			if($r){
+				/* 已经加入了该项目 */
+				$attention = 1;
+			}else{
+				/* 未加入该项目 */
+				$attention = 0;
+			}
+			return $attention;
+		}
 	}

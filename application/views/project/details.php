@@ -123,10 +123,10 @@
 			<!-- 侧栏 -->
 			<div class = "right col-md-4 col-xs-12">
 				<div class="follow">
-					<?php if (!$joined) { ?>
-					<p class="follow-project">+关注</p>
+					<?php if (!$attention) { ?>
+					<p class="follow-project" proj="<?php echo $project['id'];?>">+关注</p>
 					<?php } else { ?>
-					<p class="follow-project">取消关注</p>
+					<p class="follow-project" proj="<?php echo $project['id'];?>">取消关注</p>
 					<?php } ?>
 					<input type="hidden" value="<?php echo $project['id']?>" id="proj_id">
 				</div>

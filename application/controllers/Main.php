@@ -90,6 +90,12 @@ class Main extends CI_Controller {
 		$result = $this->wkshop->getLimitWorkShops(0,3);
 		for($i=0;$i<count($result);$i++){
 			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
+			/* 是否已经加入项目 */
+			$joined = 0;
+			if (isset($_SESSION['id'])) {
+				$joined = $this->wkshop->isJoined($result[$i]['id'],$_SESSION['id']);
+			}
+			$result[$i]['joined'] = $joined;
 		}
 		$var['workshops'] = $result;
 		$this->load->view("main/workshop",$var);

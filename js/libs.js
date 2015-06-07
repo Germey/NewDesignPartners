@@ -202,8 +202,12 @@ function getProjDetailsURL(){
 	return getSiteURL() + '/project/details';
 }
 /* 关注项目 */
-function getFollowProjURL(){
-	return getSiteURL() + '/designer/followProjOrNot';
+function getAttentionProjURL(){
+	return getSiteURL() + '/designer/addAttentionProjOrNot';
+}
+/* 关注训练营 */
+function getAttentionWkshopURL(){
+	return getSiteURL() + '/designer/addAttentionWkshopOrNot';
 }
 /* 获取加入项目地址 */
 function getJoinProjURL(){

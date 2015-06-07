@@ -24,6 +24,7 @@ class Designer extends CI_Controller {
 		$this->format = new Format();
 		$this->load->model("des_model","des");
 		$this->load->model("proj_model","proj");
+		$this->load->model("wkshop_model","wkshop");
 	}
 
 	/* 读取设计师列表 */
@@ -85,22 +86,22 @@ class Designer extends CI_Controller {
 	}
 
 	/* 关注项目　*/
-	public function followProjOrNot() {
+	public function addAttentionProjOrNot() {
 
 		$projId = $_POST['proj_id'];
 		if (!isset($_SESSION['id'])) {
 			echo "-1";
 		} else {
-			$followed = $this->proj->isJoined($projId,$_SESSION['id']);
-			if(!$followed) {
-				$result = $this->des->followProj($_SESSION['id'], $projId);
+			$attention = $this->proj->isAttention($projId,$_SESSION['id']);
+			if(!$attention) {
+				$result = $this->des->addAttentionProj($_SESSION['id'], $projId);
 				if ($result) {
 					echo "1";
 				} else {
 					echo "0";
 				}
 			} else {
-				$result = $this->des->unFollowProj($_SESSION['id'], $projId);
+				$result = $this->des->removeAttentionProj($_SESSION['id'], $projId);
 				if ($result) {
 					echo "3";
 				} else {
@@ -113,6 +114,34 @@ class Designer extends CI_Controller {
 	}
 
 
+	/* 关注训练营　*/
+	public function addAttentionWkshopOrNot() {
+
+		$wkshopId = $_POST['wkshop_id'];
+		if (!isset($_SESSION['id'])) {
+			echo "-1";
+		} else {
+			$attention = $this->wkshop->isAttention($wkshopId,$_SESSION['id']);
+			if(!$attention) {
+				$result = $this->des->addAttentionWkshop($_SESSION['id'], $wkshopId);
+				if ($result) {
+					echo "1";
+				} else {
+					echo "0";
+				}
+			} else {
+				$result = $this->des->removeAttentionWkshop($_SESSION['id'], $wkshopId);
+				if ($result) {
+					echo "3";
+				} else {
+					echo "2";
+				}
+			}
+			
+		}
+
+	}
+
 	/* 加入项目 */
 	public function joinProj() {
 
@@ -123,6 +152,29 @@ class Designer extends CI_Controller {
 			$joined = $this->proj->isJoined($projId,$_SESSION['id']);
 			if(!$joined) {
 				$result = $this->des->joinProj($_SESSION['id'], $projId);
+				if ($result) {
+					echo "1";
+				} else {
+					echo "0";
+				}
+			} else {
+				echo "2";
+			}
+			
+		}
+	}
+
+
+	/* 加入项目 */
+	public function joinWkshop() {
+
+		$wkshopId = $_POST['wkshop_id'];
+		if (!isset($_SESSION['id'])) {
+			echo "-1";
+		} else {
+			$joined = $this->wkshop->isJoined($wkshopId,$_SESSION['id']);
+			if(!$joined) {
+				$result = $this->des->joinWkshop($_SESSION['id'], $wkshopId);
 				if ($result) {
 					echo "1";
 				} else {

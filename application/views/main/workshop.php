@@ -10,7 +10,22 @@
 				<?php if($workshops):foreach($workshops as $workshop):?>
 					<div class="col-xs-4 col-xx-12">
 						<div class="workshop-single">
-							<div class = "img"><a href = "<?php echo site_url();?>/workshop/details/<?php echo $workshop['id'];?>"><img src = <?php echo $workshop['image']?>></a></div>
+							<div class = "img">
+								<a href = "<?php echo site_url();?>/workshop/details/<?php echo $workshop['id'];?>">
+									<img src = <?php echo $workshop['image']?>>
+								</a>
+								<div class="join" style="display: none">
+									<?php if ($workshop['redirect']) { ?>
+									<input type="button" class="btn btn-primary" value="立即参与" name="join" redirect="<?php echo $workshop['redirect']?>" >
+									<?php } else if ($workshop['state'] == 1) { ?>
+									<input type="button" class="btn" value="已圆满结束" name="joined" disabled="disabled">
+									<?php } else if ($workshop['joined']) { ?>
+									<input type="button" class="btn btn-primary" value="已参与" name="joined">
+									<?php } else if ($workshop['redirect'] == 0) { ?>
+									<input type="button" class="btn btn-primary" value="立即参与" name="join" wkshop="<?php echo $workshop['id']?>">
+									<?php } ?>
+								</div>
+							</div>
 							<div class = "name"><a href = "<?php echo site_url();?>/workshop/details/<?php echo $workshop['id'];?>"><?php echo $workshop['name']?></a></div>
 						</div>
 					</div>
