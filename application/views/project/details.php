@@ -95,6 +95,12 @@
 					</div>
 					<div class="details">
 						<div class="item">
+							<div class="title">设计需求</div>
+							<div class="content"><?php echo $project['des_need']?></div>
+						</div>
+					</div>
+					<div class="details">
+						<div class="item">
 							<div class="title">项目预算</div>
 							<div class="content"><?php 
 									switch ($project['fin_need']) {

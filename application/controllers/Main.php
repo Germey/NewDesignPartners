@@ -142,6 +142,18 @@ class Main extends CI_Controller {
 
 	}
 
+	/* 加载关于页面 */
+	public function about(){
+
+		$this->loadHeader();
+		$this->load->model("other_model","other");
+		$result = $this->other->getAbout();
+		$data['about'] = $this->format->htmtocode($result[0]['value'], true);
+		$this->load->view("about/about",$data);
+		$this->loadFooter();
+
+	}
+
 
 
 }

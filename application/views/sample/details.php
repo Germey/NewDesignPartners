@@ -24,7 +24,7 @@
 			<!-- 侧栏 -->
 			<div class = "right col-md-4 col-xs-12">
 				<div class="follow">
-					<p class="follow-sample">+关注</p>
+					<p class="follow-sample">&nbsp;</p>
 				</div>
 				<div class = "main">
 					<div class="introduction">

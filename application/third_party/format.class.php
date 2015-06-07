@@ -22,7 +22,7 @@
 		    			$result .= "<p>".$val."</p>";
 		    		}
 		    	} else {
-		    		$result = $val;
+		    		$result .= $val;
 		    	}
 		    }
 		    return $result; 

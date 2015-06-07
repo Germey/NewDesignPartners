@@ -1,6 +1,7 @@
 /* 通用 */
 .flow-hidden {
 	overflow: hidden;
+	padding: 0px 35px;
 }
 .block-header .more a{
 	color: #333;
@@ -139,6 +140,12 @@ form {
 }
 
 /* 项目预览 */
+#projOverview {
+	padding: 40px 0;
+}
+#projOverview .content {
+	padding: 10px 0;
+}
 .project-single {
 	padding:30px 20px 30px 10px;
 	margin: 0px 0px;
@@ -201,9 +208,12 @@ form {
 	margin-right: 5px;
 }
 /* 训练营概览 */
-#wkshopOverview{
+#wkshopOverview {
 	background-color: #F8F8F8;
-	padding: 30px 0;
+	padding: 40px 0;
+}
+#wkshopOverview .content {
+	padding: 20px 0;
 }
 .workshop-single {
 	padding-bottom: 30px;
@@ -306,9 +316,12 @@ form {
 }
 
 /* 成功实例概览 */
-#sampleOverview{
+#sampleOverview {
 	background-color: #F8F8F8;
 	padding: 30px 0;
+}
+#sampleOverview .content {
+	padding: 10px 0;
 }
 .sample-single {
 	padding-bottom: 30px;
@@ -396,6 +409,9 @@ form {
 #desOverview {
 	padding: 40px 0;
 }
+#desOverview .content {
+	padding: 30px 0;
+}
 #desOverview .designer-single {
 	max-width: 260px;
 	text-align: center;
@@ -414,7 +430,9 @@ form {
 	text-decoration: none;
 	color: #333;
 }
-
+#desOverview p {
+	text-indent: 0;
+}
 /* 合作伙伴*/
 #partners {
 	padding: 50px 0;
@@ -623,7 +641,6 @@ form {
 #proj-details .brief img {
 	width: 100%;
 }
-
 #proj-details .left .item {
 	border-top: 1px solid #EEE;
 }
@@ -655,6 +672,12 @@ form {
 #proj-details .joined-designer .title {
 	text-align: center;
 	margin: 20px;
+}
+#proj-details .joined-designer img {
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
 }
 #proj-details .joined-designer .item {
 	overflow: hidden;
@@ -712,7 +735,7 @@ form {
 }
 #workshops .intro-img img {
 	width: 260px;
-	height: 180px;
+	height: 260px;
 }
 #workshops .single a {
 	color: #333;
@@ -803,6 +826,12 @@ form {
 	flex-wrap: wrap;
 	display: flex;
 	flex-direction: row;
+}
+#wkshop-details .joined-designer img {
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
 }
 #wkshop-details .joined-designer .single {
 	width: 120px;
@@ -1242,4 +1271,16 @@ form {
 /* 提示信息 */
 #message {
 	padding: 50px 50px 30px 50px;
+}
+
+/* 关于界面 */
+#about p {
+	text-indent: 15px;
+}
+#about h3 {
+	text-align: center;
+	margin: 30px 0;
+}
+#about .container {
+	padding: 20px 80px;
 }

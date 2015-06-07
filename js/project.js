@@ -15,7 +15,7 @@ $(function() {
 		formInputChange(proj_name_res, $("#publish-base .proj_name"));
 		var proj_loc_res = nameValidate($("#publish-base input#proj_loc").val());
 		formInputChange(proj_loc_res, $("#publish-base .proj_loc"));
-		var proj_pic_res = $("#publish-base .proj_pic .img").html() == ""? false : true;
+		var proj_pic_res = $("#publish-base .proj_pic .img").attr("src") == ""? false : true;
 		formInputChange(proj_pic_res, $("#publish-base .proj_pic"));
 		var proj_des_res = nameValidate($("#publish-base .proj_des textarea").val());
 		formInputChange(proj_des_res, $("#publish-base .proj_des"));
@@ -31,7 +31,7 @@ $(function() {
 				des_kind: des_kind_res.join(","),
 				proj_name: $("#publish-base input#proj_name").val(),
 				proj_loc: $("#publish-base input#proj_loc").val(),
-				proj_pic: $("#publish-base .proj_pic img").attr("src"),
+				proj_pic: $("#publish-base .proj_pic img").attr("alt"),
 				proj_des: $("#publish-base .proj_des textarea").val(),
 				uid: $("#publish-base input#uid").val()
 			}, function(data) {
@@ -68,9 +68,8 @@ $(function() {
 	    $.post(getImageByKeyURL(), {
 	    	key:responseText.key
 	    }, function(data) {
-	    	alert(data);
 	    	$("#publish-base .proj_pic .img").html("");
-	    	$("<img>").addClass("proj_img").attr("src",data).appendTo("#publish-base .proj_pic .img");
+	    	$("<img>").addClass("proj_img").attr("src",data).attr("alt",responseText.key).appendTo("#publish-base .proj_pic .img");
 	    	var oldkey = $("#publish-base .proj_pic input#key").val();
 	    	var id = oldkey.split("_")[0];
 	    	$("#publish-base .proj_pic input#key").val(id+"_"+new Date().getTime());
@@ -166,7 +165,7 @@ $(function() {
 	    	key:responseText.key
 	    }, function(data) {
 	    	$("#publish-company .company-logo .img").html("");
-	    	$("<img>").addClass("proj_img").attr("src",data).appendTo("#publish-company .company-logo .img");
+	    	$("<img>").addClass("proj_img").attr("src",data).attr("alt",responseText.key).appendTo("#publish-company .company-logo .img");
 	    	var oldkey = $("#publish-company .company-logo input#key").val();
 	    	var id = oldkey.split("_")[0];
 	    	$("#publish-company .company-logo input#key").val(id+"_"+new Date().getTime());
@@ -195,7 +194,7 @@ $(function() {
 			charge_person: $("#publish-company .charge-person input").val(),
 			charge_phone: $("#publish-company .charge-phone input").val(),
 			charge_email: $("#publish-company .charge-email input").val(),
-			company_logo: $("#publish-company .company-logo .img img").attr("src"),
+			company_logo: $("#publish-company .company-logo .img img").attr("alt"),
 			proj_id: $("#publish-company input#proj_id").val()
 		}, function(data) {
 			if (data != "0") {

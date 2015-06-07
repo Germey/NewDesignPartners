@@ -254,6 +254,13 @@ class Project extends CI_Controller {
 		
 	}
 
+	/* 获取上传凭证 */
+	public function getUptoken() {
+
+		return $this->qiniu->getUptoken();
+
+	}
+
 
 }	
 

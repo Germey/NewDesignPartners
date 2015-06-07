@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="block-header flow-hidden">
 			<div class="title pull-left"><h2>本周推荐设计师</h2></div>
-			<div class="more pull-right"><a href="#"><h4>更多</h4></a></div>
+			<div class="more pull-right"><a href="<?php echo site_url()?>/designer"><h4>更多</h4></a></div>
 		</div>
 		<div class="content">
 			<div class="row">
