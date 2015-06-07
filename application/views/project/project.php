@@ -13,6 +13,7 @@
 					<div class="col-md-8 col-sm-6">
 						<div class="title item">
 							<?php echo $project['name'];?>
+							<p class="follow-project">+关注</p>
 						</div>
 						<div class="brief item">
 							<?php 
@@ -28,11 +29,14 @@
 						<div class="location item">
 							地点:<?php echo $project['location'];?>
 						</div>
-						<div class="number item">
-							人数:<?php echo $project['max'];?>
+						<div class="recruit item">
+							招募:<?php echo $project['recruit'];?>
 						</div>
 						<div class="date item">
-							报名截止:<?php echo date('Y.m.d', strtotime($project['end_date']));?>
+							距报名结束还有<span><?php echo $project['day_des'];?></span>天
+						</div>
+						<div class="add item">
+							<input type="button" class="btn btn-primary" value="参与项目">
 						</div>
 					</div>
 				</a>

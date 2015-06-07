@@ -11,6 +11,7 @@ class Designer extends CI_Controller {
 	
 
 	private $qiniu;
+	private $format;
 
 
 	/* 构造方法，加载模型 */
@@ -18,7 +19,9 @@ class Designer extends CI_Controller {
 
 		parent::__construct();
 		require_once(APPPATH."third_party/qiniu.class.php");
+		require_once(APPPATH."third_party/format.class.php");
 		$this->qiniu = new Qiniu();
+		$this->format = new Format();
 		$this->load->model("des_model","des");
 		$this->load->model("proj_model","proj");
 	}

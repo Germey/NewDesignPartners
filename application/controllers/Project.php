@@ -11,13 +11,17 @@ class Project extends CI_Controller {
 
 
 	private $qiniu;
+	private $format;
+
 
 	/* 构造方法，加载模型 */
 	public function __construct() {
 
 		parent::__construct();
 		require_once(APPPATH."third_party/qiniu.class.php");
+		require_once(APPPATH."third_party/format.class.php");
 		$this->qiniu = new Qiniu();
+		$this->format = new Format();
 		$this->load->model("proj_model","proj");
 
 	}
@@ -58,6 +62,7 @@ class Project extends CI_Controller {
 		$result = $this->proj->getLimitProjects($start,$pagenum);
 		for($i=0;$i<count($result);$i++){
 			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
+			$result[$i]['day_des'] = $this->format->desTwoDays(date("Y-m-d",time()), $result[$i]['end_date']);
 		}
 		$data['projects'] = $result;
 		$data['paginations'] = $this->pagination->create_links();
@@ -91,6 +96,11 @@ class Project extends CI_Controller {
 			$result = $this->proj->getDetailsByid($id);
 			$result['large_image'] = $this->qiniu->getUrlByKey($result['large_image']);
 			$result['company_logo'] = $this->qiniu->getUrlByKey($result['company_logo']);
+			$keys = array_keys($result);
+			$addPArray = array("brief","details");
+			foreach ($keys as $key) {
+				$result[$key] = $this->format->htmtocode($result[$key], in_array($key, $addPArray));
+			}
 			/* 获得加入该项目的设计师 */
 			$designers = $this->proj->getJoinedDesigners($id);
 			for($i=0;$i<count($designers);$i++){

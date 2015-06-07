@@ -10,13 +10,16 @@ class Main extends CI_Controller {
 
 
 	private $qiniu;
+	private $format;
 
 	/* 构造方法，加载模型 */
 	public function __construct() {
 
 		parent::__construct();
 		require_once(APPPATH."third_party/qiniu.class.php");
+		require_once(APPPATH."third_party/format.class.php");
 		$this->qiniu = new Qiniu();
+		$this->format = new Format();
 		$this->load->model("proj_model","proj");
 		$this->load->model("wkshop_model","wkshop");
 		$this->load->model("des_model","des");
@@ -64,7 +67,11 @@ class Main extends CI_Controller {
 
 		$result = $this->proj->loadProjOverview();
 		for($i=0;$i<count($result);$i++){
+			/* 转为七牛的连接 */
 			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
+			/* 招募内容增加换行显示 */
+			$result[$i]['recruit'] = $this->format->transSpaceToBR($result[$i]['recruit']);
+			$result[$i]['day_des'] = $this->format->desTwoDays(date("Y-m-d",time()), $result[$i]['end_date']);
 		}
 		$var['projects'] = $result;
 		$this->load->view("main/project",$var);
@@ -122,5 +129,7 @@ class Main extends CI_Controller {
 		$this->load->view("main/banner");
 
 	}
+
+
 
 }

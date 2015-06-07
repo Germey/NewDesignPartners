@@ -12,14 +12,16 @@ class Workshop extends CI_Controller {
 
 
 	private $qiniu;
-
+	private $format;
 
 	/* 构造方法，加载模型 */
 	public function __construct() {
 
 		parent::__construct();
 		require_once(APPPATH."third_party/qiniu.class.php");
+		require_once(APPPATH."third_party/format.class.php");
 		$this->qiniu = new Qiniu();
+		$this->format = new Format();
 		$this->load->model("wkshop_model","wkshop");
 
 	}
@@ -51,6 +53,11 @@ class Workshop extends CI_Controller {
 			$this->load->view("message", $data);
 		} else {
 			$result = $this->wkshop->getDetailsByid($id);
+			$keys = array_keys($result);
+			$addPArray = array("image","large_image","id","type","state","valid","redirect");
+			foreach ($keys as $key) {
+				$result[$key] = $this->format->htmtocode($result[$key], !in_array($key, $addPArray));
+			}
 			/* 获得加入该训练营的设计师 */
 			$designers = $this->wkshop->getJoinedDesigners($id);
 			for($i=0;$i<count($designers);$i++){

@@ -13,7 +13,10 @@
 							<div class="row">
 								<div class="col-md-7 col-sm-12 col-xs-7 col-xx-12">
 									<div class = "pre-img">
-										<a href = "<?php echo site_url();?>/project/details/<?php echo $project['id']?>"><img src = <?php echo $project['image']?> /></a>
+										<a href = "<?php echo site_url();?>/project/details/<?php echo $project['id']?>">
+											<img src = <?php echo $project['image']?> />
+										</a>
+										<div class="join"><input type="button" class="btn btn-primary" value="加入项目"></div>
 									</div>
 									<div class = "name">
 										<a href = "<?php echo site_url();?>/project/details/<?php echo $project['id']?>"><?php echo $project['name']?></a>
@@ -28,7 +31,7 @@
 											招募:<br><?php echo $project['recruit']?>
 										</div>
 										<div class ="enddate">
-											报名截止:<?php echo date('Y.m.d', strtotime($project['end_date']));?>
+											距报名结束还有<span><?php echo $project['day_des'];?></span>天
 										</div>
 									</div>
 								</div>

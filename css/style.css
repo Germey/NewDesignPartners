@@ -31,6 +31,12 @@ form {
   background: none;
   margin-left: 0;
 }
+.content p {
+	text-indent: 30px;
+}
+.item .title {
+	text-indent: 10px;
+}
 .form-item {
 	margin: 10px 0;
 }
@@ -166,12 +172,33 @@ form {
 .project-single .pre-img {
 	margin: auto;
 	width: 100%;
+	position: relative;
 }
 .project-single img {
 	width:100%;
 	text-align: center;
 }
-
+.project-single .enddate span {
+	font-size: 30px;
+}
+.project-single .pre-img .join {
+	position: absolute;
+	bottom: 0;
+	height: 30px;
+	background-color: rgba(215, 215, 215, 0.5);
+	width: 100%;
+}
+.project-single .pre-img .join input {
+	font-size: 12px;
+	width: 70px;
+	height: 22px;
+	float: right;
+	line-height: 12px;
+	background-color: rgb(49, 174, 219);
+	border: none;
+	margin-top: 3px;
+	margin-right: 5px;
+}
 /* 训练营概览 */
 #wkshopOverview{
 	background-color: #F8F8F8;
@@ -512,9 +539,12 @@ form {
 }
 
 /* 项目列表页面 */
+#projects {
+	background: #fbfbfb;
+}
 #projects .single {
 	padding: 50px;
-	border: 1px solid #EEE;
+	border-bottom: 1px solid #EEE;
 	border-top: none;
 }
 #projects .intro-img{
@@ -522,18 +552,38 @@ form {
 	margin: auto;
 }
 #projects .intro-img img {
-	width: 230px;
-	height: 150px;
+	width: 260px;
+	height: 180px;
 }
 #projects .single a {
 	color: #333;
 }
 #projects .single .title {
 	font-size: 20px;
-
+}
+#projects .add input {
+	float: right;
+	width: 200px;
+	background-color: rgb(58, 161, 236);
+	border: rgb(27, 128, 213);
+}
+#projects .add input:hover {
+	background-color: rgb(66, 120, 237);
+}
+#projects .follow-project {
+  float: right;
+  width: 60px;
+  cursor: pointer;
+  font-size: 14px;
 }
 #projects .single .item {
 	margin: 5px 0;
+}
+#projects .single .brief {
+	margin: 20px 0;
+}
+#projects .single .date span {
+	font-size: 24px;
 }
 #projects .pagi {
 	text-align: right;
@@ -576,6 +626,10 @@ form {
 	padding: 20px;
 	text-align: center;
 	border-bottom: 1px solid #EEE;
+}
+#proj-details .right input[type="button"] {
+	width: 200px;
+	margin: 20px 0;
 }
 #proj-details .right .company_logo {
 	width: 50%;

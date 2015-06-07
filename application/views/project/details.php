@@ -35,16 +35,16 @@
 								foreach ($kinds as $kind) {
 									switch ($kind) {
 										case 1:
-											echo "<p>单纯的项目展示（只在平台上展示，感兴趣的设计师自行联系，平台不参与项目）</p>";
+											echo "单纯的项目展示（只在平台上展示，感兴趣的设计师自行联系，平台不参与项目）";
 											break;
 										case 2:
-											echo "<p>方案模糊，需要平台先征集方案（项目托管给平台，按照标准流程，从方案征集阶段开始）</p>";
+											echo "方案模糊，需要平台先征集方案（项目托管给平台，按照标准流程，从方案征集阶段开始）";
 											break;
 										case '3':
-											echo "<p>方案清晰，需要平台招募团队实现（项目托管给平台，按照标准流程，从团队征集阶段开始）</p>";
+											echo "方案清晰，需要平台招募团队实现（项目托管给平台，按照标准流程，从团队征集阶段开始）";
 											break;
 										case '4':
-											echo "<p>项目整体外包（项目全权交由平台内部设计师团队完成，不走平台流程，效率更高，适合需求紧急型项目）</p>";
+											echo "项目整体外包（项目全权交由平台内部设计师团队完成，不走平台流程，效率更高，适合需求紧急型项目）";
 											break;
 									}
 								}
@@ -59,16 +59,16 @@
 								foreach ($kinds as $kind) {
 									switch ($kind) {
 										case 1:
-											echo "<p>商业咨询（如商业模式、设计研究等）</p>";
+											echo "商业咨询（如商业模式、设计研究等）";
 											break;
 										case 2:
-											echo "<p>服务策略（如服务设计，品牌设计等）</p>";
+											echo "服务策略（如服务设计，品牌设计等）";
 											break;
 										case '3':
-											echo "<p>界面设计（如网站、App的交互设计、视觉设计等）</p>";
+											echo "界面设计（如网站、App的交互设计、视觉设计等）";
 											break;
 										case '4':
-											echo "<p>平面设计（如品牌VI、Logo标识、名片、海报等）</p>";
+											echo "平面设计（如品牌VI、Logo标识、名片、海报等）";
 											break;
 									}
 								}
@@ -99,19 +99,19 @@
 							<div class="content"><?php 
 									switch ($project['fin_need']) {
 										case 1:
-											echo "<p>＜10,000元</p>";
+											echo "＜10,000元";
 											break;
 										case 2:
-											echo "<p>10,000-30,000元</p>";
+											echo "10,000-30,000元";
 											break;
 										case 3:
-											echo "<p>30,000-50,000元</p>";
+											echo "30,000-50,000元";
 											break;
 										case 4:
-											echo "<p>50,000-100,000元</p>";
+											echo "50,000-100,000元";
 											break;
 										case 5:
-											echo "<p>＞100,000元</p>";
+											echo "＞100,000元";
 											break;
 									}
 							?></div>
@@ -132,6 +132,9 @@
 				</div>
 				<div class="main">
 					<div class="introduction">
+						<div class="item">
+							<input type="button" class="btn btn-primary" value="参与项目">
+						</div>
 						<div class="item">
 							<p>发布方</p>
 							<?php if($project['company_name']){?><p><?php echo $project['company_name']?></p><?php } ?>
