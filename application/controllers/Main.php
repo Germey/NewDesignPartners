@@ -72,6 +72,12 @@ class Main extends CI_Controller {
 			/* 招募内容增加换行显示 */
 			$result[$i]['recruit'] = $this->format->transSpaceToBR($result[$i]['recruit']);
 			$result[$i]['day_des'] = $this->format->desTwoDays(date("Y-m-d",time()), $result[$i]['end_date']);
+			/* 是否已经加入项目 */
+			$joined = 0;
+			if (isset($_SESSION['id'])) {
+				$joined = $this->proj->isJoined($result[$i]['id'],$_SESSION['id']);
+			}
+			$result[$i]['joined'] = $joined;
 		}
 		$var['projects'] = $result;
 		$this->load->view("main/project",$var);

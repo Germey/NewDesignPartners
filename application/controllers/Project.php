@@ -63,6 +63,11 @@ class Project extends CI_Controller {
 		for($i=0;$i<count($result);$i++){
 			$result[$i]['image'] = $this->qiniu->getUrlByKey($result[$i]['image']);
 			$result[$i]['day_des'] = $this->format->desTwoDays(date("Y-m-d",time()), $result[$i]['end_date']);
+			$joined = 0;
+			if (isset($_SESSION['id'])) {
+				$joined = $this->proj->isJoined($result[$i]['id'],$_SESSION['id']);
+			}
+			$result[$i]['joined'] = $joined;
 		}
 		$data['projects'] = $result;
 		$data['paginations'] = $this->pagination->create_links();
@@ -103,7 +108,7 @@ class Project extends CI_Controller {
 			}
 			/* 获得加入该项目的设计师 */
 			$designers = $this->proj->getJoinedDesigners($id);
-			for($i=0;$i<count($designers);$i++){
+			for($i=0;$i<count($designers);$i++) {
 				$designers[$i]['image'] = $this->qiniu->getUrlByKey($designers[$i]['image']);
 			}
 			/* 是否已经加入 */

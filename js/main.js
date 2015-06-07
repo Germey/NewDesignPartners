@@ -183,11 +183,19 @@ $(function(){
 		inputMask: true
 	});
 
-	/* 关注 - 项目 */
+	/* 首页鼠标滑动经过项目弹出参与按钮 */
+	$("#projOverview .project-single .pre-img").mouseleave(function() {
+		$(this).find(".join").fadeOut(500);
+	})
+	.mouseenter(function() {
+		$(this).find(".join").fadeIn(500);
+	});
+
+	/* 关注项目 */
 	$("#proj-details p.follow-project").click(function() {
 		$.post(getFollowProjURL(), {proj_id: $("#proj-details #proj_id").val()}, function(data) {
 			if (data == "-1") {
-				window.location.href = getSiteURL() + "/login/login";
+				window.location.href = getSiteURL() + "/login";
 			} else if (data == 0) {
 				message("关注失败，请稍后重试");
 			} else if (data == 1) {
@@ -200,5 +208,52 @@ $(function(){
 		});
 	});
 
+	/* 加入项目 */
+	function joinProj() {
+		var btn = $(this);
+		if($(this).attr("proj")){
+			$.post(getJoinProjURL(), {proj_id: btn.attr("proj")}, function(data) {
+				if (data == "-1") {
+					window.location.href = getSiteURL() + "/login";
+				} else if (data == 0) {
+					message("参与失败，请稍后重试");
+				} else if (data == 1) {
+					btn.removeAttr("proj").attr("name","joined").val("已参与");
+				} else if (data == 2) {
+					message("请勿重复参与");
+				} 
+			});
+		}
+
+	}
+
+	/* 加入训练营 */
+	function joinWkshop() {
+		var btn = $(this);
+		if($(this).attr("wkshop")){
+			$.post(getJoinWkshopURL(), {wkshop_id: btn.attr("wkshop")}, function(data) {
+				if (data == "-1") {
+					window.location.href = getSiteURL() + "/login";
+				} else if (data == 0) {
+					message("参与失败，请稍后重试");
+				} else if (data == 1) {
+					btn.removeAttr("proj").attr("name","joined").val("已参与");
+				} else if (data == 2) {
+					message("请勿重复参与");
+				} 
+			});
+		}
+
+	}
+
+
+	/* 首页 - 加入 - 项目 */
+	$('#projOverview .project-single input[name="join"]').click(joinProj);
+
+	/* 项目列表页 - 加入 - 项目 */
+	$('#projects .add input[name="join"]').click(joinProj);
+
+	/* 详情页 - 加入 - 项目 */
+	$('#proj-details .join input[name="join"]').click(joinProj);
 
 });

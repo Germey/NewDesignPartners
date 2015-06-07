@@ -16,7 +16,13 @@
 										<a href = "<?php echo site_url();?>/project/details/<?php echo $project['id']?>">
 											<img src = <?php echo $project['image']?> />
 										</a>
-										<div class="join"><input type="button" class="btn btn-primary" value="加入项目"></div>
+										<div class="join" style="display: none">
+											<?php if($project['joined']){?>
+											<input type="button" class="btn btn-primary" value="已参与" name="joined">
+											<?php } else {?>
+											<input type="button" class="btn btn-primary" value="参与项目" name="join" proj="<?php echo $project['id'];?>">
+											<?php }?>
+										</div>
 									</div>
 									<div class = "name">
 										<a href = "<?php echo site_url();?>/project/details/<?php echo $project['id']?>"><?php echo $project['name']?></a>

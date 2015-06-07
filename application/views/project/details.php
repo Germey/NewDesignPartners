@@ -132,8 +132,12 @@
 				</div>
 				<div class="main">
 					<div class="introduction">
-						<div class="item">
-							<input type="button" class="btn btn-primary" value="参与项目">
+						<div class="item join">
+							<?php if ($joined) { ?>
+							<input type="button" class="btn btn-primary" value="已参与" name="joined">
+							<?php } else { ?>
+							<input type="button" class="btn btn-primary" value="参与项目" name="join" proj="<?php echo $project['id']?>">
+							<?php } ?>
 						</div>
 						<div class="item">
 							<p>发布方</p>

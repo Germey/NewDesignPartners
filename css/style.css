@@ -187,6 +187,7 @@ form {
 	height: 30px;
 	background-color: rgba(215, 215, 215, 0.5);
 	width: 100%;
+	overflow: hidden;
 }
 .project-single .pre-img .join input {
 	font-size: 12px;
@@ -557,6 +558,7 @@ form {
 }
 #projects .single a {
 	color: #333;
+	text-decoration: none;
 }
 #projects .single .title {
 	font-size: 20px;

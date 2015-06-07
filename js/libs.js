@@ -201,7 +201,15 @@ function getStoreCompanyURL(){
 function getProjDetailsURL(){
 	return getSiteURL() + '/project/details';
 }
-/* 获取项目详情地址 */
+/* 关注项目 */
 function getFollowProjURL(){
 	return getSiteURL() + '/designer/followProjOrNot';
+}
+/* 获取加入项目地址 */
+function getJoinProjURL(){
+	return getSiteURL() + '/designer/joinProj';
+}
+/* 获取加入训练营地址 */
+function getJoinWkshopURL(){
+	return getSiteURL() + '/designer/joinWkshop';
 }

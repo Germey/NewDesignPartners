@@ -113,6 +113,29 @@ class Designer extends CI_Controller {
 	}
 
 
+	/* 加入项目 */
+	public function joinProj() {
+
+		$projId = $_POST['proj_id'];
+		if (!isset($_SESSION['id'])) {
+			echo "-1";
+		} else {
+			$joined = $this->proj->isJoined($projId,$_SESSION['id']);
+			if(!$joined) {
+				$result = $this->des->joinProj($_SESSION['id'], $projId);
+				if ($result) {
+					echo "1";
+				} else {
+					echo "0";
+				}
+			} else {
+				echo "2";
+			}
+			
+		}
+	}
+
+
 	/* 获得已经加入的项目 */
 	public function getJoinedProjects() {
 

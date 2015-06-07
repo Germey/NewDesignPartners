@@ -116,17 +116,26 @@
 		/* 关注项目 */
 		public function followProj($uid, $projId) {
 
-			$sql = "insert into proj_designer(project_id,designer_id) values ($projId,$uid)";
+			$sql = "insert into proj_attention(project_id,designer_id) values ($projId,$uid)";
 			$result = $this->db->query($sql);
 			return $result;
 
 		}
 
 
+		/* 加入项目 */
+		public function joinProj($uid, $projId) {
+
+			$sql = "insert into proj_designer(project_id,designer_id) values ($projId,$uid)";
+			$result = $this->db->query($sql);
+			return $result;
+
+		}
+
 		/* 取消关注项目 */
 		public function unFollowProj($uid, $projId) {
 
-			$sql = "delete from proj_designer where project_id = $projId and designer_id = $uid";
+			$sql = "delete from proj_attention where project_id = $projId and designer_id = $uid";
 			$result = $this->db->query($sql);
 			return $result;
 

@@ -92,12 +92,14 @@
 				</div>
 				<div class = "main">
 					<div class="introduction">
-						<div class="item">
-							<?php if($workshop['state'] == 1): ?>
-								已经结束
-							<?php else: ?>
-								立即报名
-							<?php endif ?>
+						<div class="item join">
+							<?php if($workshop['state'] == 1){?>
+								<input type="button" class="btn" value="已结束">
+							<?php } else if($joined) { ?>
+								<input type="button" class="btn btn-primary" value="已参与" name="joined">
+							<?php } else { ?>
+								<input type="button" class="btn btn-primary" value="立即参与" name="join" wkshop="<?php echo $workshop['id'];?>">
+							<?php } ?>
 						</div>
 					</div>
 					<div class="joined-designer">
