@@ -112,6 +112,12 @@ class Workshop extends CI_Controller {
 				$joined = $this->wkshop->isJoined($result[$i]['id'],$_SESSION['id']);
 			}
 			$result[$i]['joined'] = $joined;
+			/* 是否已经关注 */
+			$attention = 0;
+			if(isset($_SESSION['id'])){
+				$attention = $this->wkshop->isAttention($result[$i]['id'],$_SESSION['id']);
+			}
+			$result[$i]['attention'] = $attention;
 		}
 		$data['workshops'] = $result;
 		$data['paginations'] = $this->pagination->create_links();

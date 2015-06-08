@@ -68,6 +68,12 @@ class Project extends CI_Controller {
 				$joined = $this->proj->isJoined($result[$i]['id'],$_SESSION['id']);
 			}
 			$result[$i]['joined'] = $joined;
+			/* 是否已经关注 */
+			$attention = 0;
+			if(isset($_SESSION['id'])){
+				$attention = $this->proj->isAttention($result[$i]['id'],$_SESSION['id']);
+			}
+			$result[$i]['attention'] = $attention;
 		}
 		$data['projects'] = $result;
 		$data['paginations'] = $this->pagination->create_links();

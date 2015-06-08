@@ -221,6 +221,9 @@ $(function(){
 	/* 关注项目 */
 	$("#proj-details p.follow-project").click(addAttentionProj);
 
+	/* 项目列表 - 关注项目 */
+	$("#projects p.follow-project").click(addAttentionProj);
+
 
 	/* 加关注 */
 	function addAttentionWkshop() {
@@ -242,6 +245,10 @@ $(function(){
 
 	/* 关注训练营 */
 	$("#wkshop-details p.follow-workshop").click(addAttentionWkshop);
+
+	/* 训练营列表 - 关注训练营 */
+	$("#workshops p.follow-workshop").click(addAttentionWkshop);
+
 
 	/* 加入项目 */
 	function joinProj() {

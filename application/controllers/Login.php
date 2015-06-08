@@ -69,7 +69,7 @@ class Login extends CI_Controller {
 				$_SESSION['id'] = $result[0]['id'];
 				/* 登录成功 */
 				$data['content'] = "恭喜您登录成功";
-				$data['redirect'] = "main";
+				$data['redirect'] = "back";
 				$this->load->view("message",$data);
 			} else {
 				/* 密码错误 */

@@ -12,11 +12,18 @@
 					</a>
 				</div>
 				<div class="col-md-8 col-sm-6">
-					<a href="<?php echo site_url();?>/project/details/<?php echo $project['id'];?>">
+					
 					<div class="title item">
-						<?php echo $project['name'];?>
-						<p class="follow-project">+关注</p>
+						<a href="<?php echo site_url();?>/project/details/<?php echo $project['id'];?>">
+							<?php echo $project['name'];?>
+						</a>
+						<?php if (!$project['attention']) { ?>
+						<p class="follow-project" proj="<?php echo $project['id'];?>">+关注</p>
+						<?php } else { ?>
+						<p class="follow-project" proj="<?php echo $project['id'];?>">取消关注</p>
+						<?php } ?>
 					</div>
+					<a href="<?php echo site_url();?>/project/details/<?php echo $project['id'];?>">
 					<div class="brief item">
 						<?php 
 						   $str;

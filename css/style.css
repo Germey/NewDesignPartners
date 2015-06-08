@@ -630,6 +630,9 @@ form {
 #register {
 	padding: 50px 0;
 }
+#register p{
+	text-indent: 0;
+}
 #register p.title {
 	text-align: center;
 	font-size: 25px;
@@ -941,11 +944,12 @@ form {
 	float: right;
 	width: 200px;
 }
-#workshops .follow-project {
+#workshops .follow-workshop {
   float: right;
   width: 60px;
   cursor: pointer;
   font-size: 14px;
+  line-height: 30px;
 }
 #workshops .single .item {
 	margin: 5px 0;

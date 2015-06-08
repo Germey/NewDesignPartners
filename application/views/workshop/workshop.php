@@ -12,10 +12,17 @@
 					</a>
 				</div>
 				<div class="col-md-8 col-sm-6 items">
-					<a href="<?php echo site_url();?>/workshop/details/<?php echo $workshop['id'];?>">
 					<div class="title item">
-						<?php echo $workshop['name'];?>
+						<a href="<?php echo site_url();?>/workshop/details/<?php echo $workshop['id'];?>">
+							<?php echo $workshop['name'];?>
+						</a>
+						<?php if (!$workshop['attention']) { ?>
+						<p class="follow-workshop" wkshop="<?php echo $workshop['id'];?>">+关注</p>
+						<?php } else { ?>
+						<p class="follow-workshop" wkshop="<?php echo $workshop['id'];?>">取消关注</p>
+						<?php } ?>
 					</div>
+					<a href="<?php echo site_url();?>/workshop/details/<?php echo $workshop['id'];?>">
 					<div class="brief item">
 						<?php 
 						   $str;
@@ -46,11 +53,13 @@
 						<?php } ?>
 					</div>
 					<div class="add item">
-						<?php if ($workshop['state'] == 1) { ?>
+						<?php if ($workshop['redirect']) { ?>
+						<input type="button" class="btn btn-primary" value="立即参与" name="join" redirect="<?php echo $workshop['redirect']?>" >
+						<?php } else if ($workshop['state'] == 1) { ?>
 						<input type="button" class="btn" value="已圆满结束" name="joined" disabled="disabled">
 						<?php } else if ($workshop['joined']) { ?>
 						<input type="button" class="btn btn-primary" value="已参与" name="joined">
-						<?php } else { ?>
+						<?php } else if ($workshop['redirect'] == 0) { ?>
 						<input type="button" class="btn btn-primary" value="立即参与" name="join" wkshop="<?php echo $workshop['id']?>">
 						<?php } ?>
 					</div>
