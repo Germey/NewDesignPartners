@@ -67,11 +67,14 @@ form {
 }
 
 #menubar {
-	height: 137px;
+	min-height: 137px;
 }
 #menubar>nav {
-	height: 137px;
+	min-height: 137px;
 	padding-top: 30px;
+}
+#menubar .navbar {
+	margin-bottom: 0;
 }
 #menubar .navbar-brand img {
 	margin-right: 30px;
