@@ -1,10 +1,10 @@
 <!-- 轮播 -->
-<div id="ad-carousel" class="carousel slide" data-ride="carousel">
+<div id="carousel" class="carousel slide" data-ride="carousel">
 	<!--轮播下方点-->
 	<ol class="carousel-indicators">
-		<li data-target="#ad-carousel" data-slide-to="0" class="active"></li>
-		<li data-target="#ad-carousel" data-slide-to="1"></li>
-		<li data-target="#ad-carousel" data-slide-to="2"></li>
+		<li data-target="#carousel" data-slide-to="0" class="active"></li>
+		<li data-target="#carousel" data-slide-to="1"></li>
+		<li data-target="#carousel" data-slide-to="2"></li>
 	</ol>
 	<!-- 轮播图-->
 	<div class="carousel-inner">
@@ -53,9 +53,9 @@
 		
 	</div>
 	<!-- 左右箭头 -->
-	<a class="left carousel-control" href="#ad-carousel" data-slide="prev"><span
+	<a class="left carousel-control" href="#carousel" data-slide="prev"><span
 			class="glyphicon glyphicon-chevron-left"></span></a>
-	<a class="right carousel-control" href="#ad-carousel" data-slide="next"><span
+	<a class="right carousel-control" href="#carousel" data-slide="next"><span
 			class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
 <!-- 轮播结束 -->
