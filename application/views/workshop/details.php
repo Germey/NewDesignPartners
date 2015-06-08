@@ -97,7 +97,7 @@
 							<input type="button" class="btn btn-primary" value="立即参与" name="join" redirect="<?php echo $workshop['redirect']?>" >
 							<?php } else if ($workshop['state'] == 1) { ?>
 							<input type="button" class="btn" value="已圆满结束" name="joined" disabled="disabled">
-							<?php } else if ($workshop['joined']) { ?>
+							<?php } else if ($joined) { ?>
 							<input type="button" class="btn btn-primary" value="已参与" name="joined">
 							<?php } else if ($workshop['redirect'] == 0) { ?>
 							<input type="button" class="btn btn-primary" value="立即参与" name="join" wkshop="<?php echo $workshop['id']?>">
