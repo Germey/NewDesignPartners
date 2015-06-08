@@ -14,7 +14,7 @@
 				<div class="carousel-caption">
 					<div class="content">
 						<h2>"PixCloud"云景 —— 艺术创作平台</h2>
-						<p>团队组建6月3日————7月15日</p>
+						<p>团队组建6月3日———7月15日</p>
 						<div class="groups">
 							<a href="<?php echo site_url();?>/project/details/17"><input type="button" class="btn btn-primary" value="了解更多"></a>
 							<a href="<?php echo site_url();?>/project/details/17"><input type="button" class="btn btn-primary" value="参与项目"></a>
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="item">
+		<div class="item mofang">
 			<img src="<?php echo base_url();?>images/banner6.png" alt="2 slide">
 			<div class="container">
 				<div class="carousel-caption">

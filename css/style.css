@@ -74,7 +74,7 @@ form {
 	padding-top: 30px;
 }
 #menubar .navbar-brand img {
-	margin-right: 40px;
+	margin-right: 30px;
 }
 #menubar .navbar-collapse {
 	margin-top: 15px;
@@ -98,20 +98,26 @@ form {
 	.carousel .carousel-caption .content {
 		position: absolute;
 		bottom: 60px;
-		right: 150px;
+		right: 15%;
+		left: 15%;
 		font-size: 12px;
 	}
 	.carousel .content h2 {
-		font-size: 14px;
+		font-size: 12px;
 	}
 	.carousel .content p {
-		font-size: 12px;
+		font-size: 10px;
 	}
 	.carousel .content .groups input {
 		width: 70px !important;
 		height: 30px !important;
 		font-size: 12px;
-		margin: 10px 10px !important;
+		margin: 10px 0px !important;
+	}
+	.carousel .mofang input {
+		position: absolute;
+		right: 10px;
+		bottom: -30px;
 	}
 }
 
@@ -144,6 +150,14 @@ form {
 		width: 100px !important;
 		margin: 20px 10px !important;
 	}
+	.carousel p {
+		margin: 10px 0;
+	}
+	.carousel .mofang input {
+		position: absolute;
+		right: -40px;
+		bottom: -60px;
+	}
 }
 
 @media (min-width: 868px) and (max-width: 991px){
@@ -162,8 +176,15 @@ form {
 		bottom: 150px;
 		right: 200px;
 	}
+	.carousel p {
+		margin: 20px 0;
+	}
+	.carousel .mofang input {
+		position: absolute;
+		right: -80px;
+	}
 }
-@media (min-width: 992px){
+@media (min-width: 992px) and (max-width: 1199px){
 	.carousel{
 		height:373px;
 	}
@@ -178,6 +199,37 @@ form {
 		position: absolute;
 		bottom: 150px;
 		right: 250px;
+	}
+	.carousel p {
+		margin: 20px 0;
+	}
+	.carousel .mofang input {
+		position: absolute;
+		right: -80px;
+	}
+}
+@media (min-width: 1200px) {
+	.carousel{
+		height:373px;
+	}
+	.carousel-inner .item{
+		width:100%;
+		height:373px;
+	}
+	.carousel img {
+		min-height: 373px;
+	}
+	.carousel .carousel-caption .content {
+		position: absolute;
+		bottom: 150px;
+		right: 250px;
+	}
+	.carousel p {
+		margin: 20px 0;
+	}
+	.carousel .mofang input {
+		position: absolute;
+		right: 15%;
 	}
 }
 .carousel {
@@ -215,7 +267,7 @@ form {
 	padding: 10px 0;
 }
 .project-single {
-	padding:30px 20px 30px 10px;
+	padding: 20px 20px 10px 10px;
 	margin: 0px 0px;
 }
 .project-single .introduction {
@@ -525,6 +577,7 @@ form {
 #partners .img-wrap img {
 	vertical-align: middle;
 	max-width: 210px;
+	width: 100%;
 }
 
 /* 主页底部宣传页面 */
@@ -649,17 +702,13 @@ form {
 	background: #fbfbfb;
 }
 #projects .single {
-	padding: 50px;
+	padding: 40px 20px;
 	border-bottom: 1px solid #EEE;
 	border-top: none;
 }
 #projects .intro-img{
 	width: 230px;
 	margin: auto;
-}
-#projects .intro-img img {
-	width: 260px;
-	height: 180px;
 }
 #projects .single a {
 	color: #333;
@@ -677,6 +726,7 @@ form {
   width: 60px;
   cursor: pointer;
   font-size: 14px;
+  line-height: 30px;
 }
 #projects .single .item {
 	margin: 5px 0;
@@ -690,7 +740,46 @@ form {
 #projects .pagi {
 	text-align: right;
 }
-
+#projects .add {
+	float: right;
+}
+#projects .date {
+	float: left;
+}
+@media (min-width: 400px) {
+	#projects .intro-img img {
+		width: 260px;
+		height: 180px;
+	}
+	#projects .intro-img{
+		width: 230px;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+}
+@media (max-width: 399px) {
+	#projects .intro-img img {
+		width: 100%;
+	}
+	#projects .intro-img{
+		width: 100%;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) { 
+	#projects .add {
+		float: left !important;
+	}
+}
+@media (max-width: 523px) {
+	#projects .add {
+		float: left !important;
+	}
+	#projects .date {
+		margin-right: 20px !important;
+	}
+}
 /* 项目详情 */
 #proj-details {
 	background-color: #F8F8F8;
@@ -793,17 +882,44 @@ form {
 	background: #fbfbfb;
 }
 #workshops .single {
-	padding: 50px;
+	padding: 40px 20px;
 	border-bottom: 1px solid #EEE;
 	border-top: none;
 }
-#workshops .intro-img{
-	width: 230px;
-	margin: auto;
+
+@media (min-width: 400px) {
+	#workshops .intro-img img {
+		width: 240px;
+		height: 240px;
+	}
+	#workshops .intro-img{
+		width: 230px;
+		margin: auto;
+		margin-bottom: 10px;
+	}
 }
-#workshops .intro-img img {
-	width: 260px;
-	height: 260px;
+@media (max-width: 399px) {
+	#workshops .intro-img img {
+		width: 100%;
+	}
+	#workshops .intro-img{
+		width: 100%;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) { 
+	#workshops .add {
+		float: left !important;
+	}
+}
+@media (max-width: 523px) {
+	#workshops .add {
+		float: left !important;
+	}
+	#workshops .date {
+		margin-right: 20px !important;
+	}
 }
 #workshops .single a {
 	color: #333;
@@ -811,6 +927,15 @@ form {
 }
 #workshops .single .title {
 	font-size: 20px;
+}
+#workshops .items {
+	overflow: hidden;
+}
+#workshops .add {
+	float: right;
+}
+#workshops .date {
+	float: left;
 }
 #workshops .add input {
 	float: right;
@@ -1350,5 +1475,5 @@ form {
 	margin: 30px 0;
 }
 #about .container {
-	padding: 20px 80px;
+	padding: 20px 50px;
 }

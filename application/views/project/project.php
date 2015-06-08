@@ -34,10 +34,10 @@
 					<div class="recruit item">
 						招募:<?php echo $project['recruit'];?>
 					</div>
+					</a>
 					<div class="date item">
 						距报名结束还有<span><?php echo $project['day_des'];?></span>天
 					</div>
-					</a>
 					<div class="add item">
 						<?php if ($project['joined']) { ?>
 						<input type="button" class="btn btn-primary" value="已参与" name="joined">

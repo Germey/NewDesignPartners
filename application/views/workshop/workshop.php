@@ -11,7 +11,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-md-8 col-sm-6">
+				<div class="col-md-8 col-sm-6 items">
 					<a href="<?php echo site_url();?>/workshop/details/<?php echo $workshop['id'];?>">
 					<div class="title item">
 						<?php echo $workshop['name'];?>
@@ -37,6 +37,7 @@
 							报名截止：<?php echo $workshop['end_date'];?>
 						<?php } ?>
 					</div>
+					</a>
 					<div class="date item">
 						<?php if($workshop['state'] == 1) {?>
 							起始日期：<?php echo $workshop['start_date']?>至<?php echo $workshop['end_date'];?>
@@ -44,7 +45,6 @@
 							距报名结束还有<span><?php echo $workshop['day_des'];?></span>天
 						<?php } ?>
 					</div>
-					</a>
 					<div class="add item">
 						<?php if ($workshop['state'] == 1) { ?>
 						<input type="button" class="btn" value="已圆满结束" name="joined" disabled="disabled">
